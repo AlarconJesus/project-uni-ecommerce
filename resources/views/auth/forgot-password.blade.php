@@ -1,17 +1,18 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <!-- <x-authentication-card-logo />-->
+            <img src="https://i.ibb.co/3h5Qrbj/logoproinfalca.png" alt="logoproinfalca" style="max-width: 120px" border="0">
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('Olvidaste tu contraseña? No hay problema. Solo escribe tu dirección de correo y enviaremos un email a tu correo con el link para restablecerla.') }}
         </div>
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
         @endif
 
         <x-validation-errors class="mb-4" />
@@ -26,7 +27,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Enviar el link al correo') }}
                 </x-button>
             </div>
         </form>

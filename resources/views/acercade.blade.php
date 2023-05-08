@@ -462,6 +462,24 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+    <style>
+        @media screen and (max-width: 1000px) {
+            .section-1 img {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .section-1 img {
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -470,7 +488,7 @@
             <img src="https://i.ibb.co/3h5Qrbj/logoproinfalca.png" alt="proinfalca" class="logo" />
             <ul class="navbar-menu">
                 <li><a href="{{url('/')}}">Inicio</a></li>
-                <li><a href="{{url('/acercade')}}">Acerca de</a></li>
+                <li class="link-active"><a href="{{url('/acercade')}}">Acerca de</a></li>
                 <li><a href="{{url('/contacto')}}">Contacto</a></li>
             </ul>
             <div class="navbar-toggle">
@@ -494,49 +512,44 @@
     <main>
         <section class="section-1">
             <div class="section-1-container">
-                <h1>Proinfalca - Especialistas en respuestos</h1>
-                <p>Con más de 10 años de experiencia en el mercado, el equipo de Proinfalca te ofrece
-                    la mayor variedad en respuestos, especializados en correas.</p>
-                <a href="#" class="button-verproductos">Ver todos nuestros productos</a>
+                <h1>Proinfalca - Historia</h1>
+                <p>PROINFALCA, fue creada el 27 de enero de 2009 por el señor Pedro Trasmonte, con la finalidad de ofrecer
+                    repuestos de distinto tipo para particular e industrial, especializándose en el apartado de correas. El gerente nos
+                    comenta que, en ese entonces, la mayoría del mercado de repuestos para esta zona se basaba en catálogos, y eran muy
+                    específicos el tipo de correa que ofrecían, para determinados automóviles, y de ciertos años. En vista de la necesidad
+                    de un negocio especializado en correas de distinto tipo, tamaño, y función, surge PROINFALCA, para dar al pueblo
+                    falconiano repuestos de calidad especializándose en correas.</p>
             </div>
             <img src="https://i.ibb.co/Bnk3Ts9/proinfalca.jpg" alt="Proinfalca sede" />
         </section>
 
         <section class="section-2">
-            <h2>Lista de Productos</h2>
+            <h2>¿Quienes somos?</h2>
             <div class="section-2-cardContainer">
-                <article class="section-2-cardContainer-card">
-                    <img src="https://noticias.coches.com/wp-content/uploads/2019/03/Correa-de-Distribuci%C3%B3n-2.jpg" alt="Correa distribucion" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">10.99$</p>
-                        <h3><a href="#">Correa de distribucion</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://repuestoenlinea.com/wp-content/uploads/2021/05/Correa-De-Aire-Acondicionado-Hyundai-Getz-AAt-22260.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">13.99$</p>
-                        <h3><a href="#">Correa del aire acondicionado</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_939643-MLV45836962366_052021-V.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">8.00$</p>
-                        <h3><a href="#">Correa motor</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://fullrepuesto.com/wp-content/uploads/2021/11/Correa-de-tiempo-300x225.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">6.50$</p>
-                        <h3><a href="#">Correa de distribucion</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
+                <div class="card-acercade">
+                    <h3 class="card-acercade-title">Misión</h3>
+                    <p class="card-acercade-text">
+                        “ Ofrecer el mejor servicio, para mantener y consolidar el liderazgo en ventas de productos industriales, logrando
+                        satisfacer las necesidades de nuestros clientes con una amplia gama de productos de excelente calidad y un personal
+                        profesional a su servicio ”
+                    </p>
+                </div>
+                <div class="card-acercade">
+                    <h3 class="card-acercade-title">Visión</h3>
+                    <p class="card-acercade-text">
+                        “ Ser una organización reconocida nacional e internacionalmente en liderazgo de ventas de productos industriales de muy
+                        buena calidad, que satisfagan las necesidades del cliente, respetando las normas ambientales y exigencias
+                        gubernamentales para poder edificar una mejor calidad de vida, para todos los miembros de nuestra empresa. ”
+                    </p>
+                </div>
+                <div class="card-acercade">
+                    <h3 class="card-acercade-title">Política de Calidad</h3>
+                    <p class="card-acercade-text">
+                        “ Ofrecer el mejor servicio en ventas de productos industriales, para satisfacer las necesidades de nuestros clientes con
+                        una amplia gama de productos de calidad y un personal comprometido en el cumplimiento del SGC para el mejoramiento
+                        continuo ”
+                    </p>
+                </div>
             </div>
         </section>
     </main>

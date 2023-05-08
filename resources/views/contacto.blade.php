@@ -457,11 +457,7 @@
             }
         }
     </style>
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -471,7 +467,7 @@
             <ul class="navbar-menu">
                 <li><a href="{{url('/')}}">Inicio</a></li>
                 <li><a href="{{url('/acercade')}}">Acerca de</a></li>
-                <li><a href="{{url('/contacto')}}">Contacto</a></li>
+                <li class="link-active"><a href="{{url('/contacto')}}">Contacto</a></li>
             </ul>
             <div class="navbar-toggle">
                 <img src="./images/icon-hamburger.svg" alt="hamburguer icon" class="navbar-hamburguerIcon" />
@@ -494,50 +490,17 @@
     <main>
         <section class="section-1">
             <div class="section-1-container">
-                <h1>Proinfalca - Especialistas en respuestos</h1>
-                <p>Con más de 10 años de experiencia en el mercado, el equipo de Proinfalca te ofrece
-                    la mayor variedad en respuestos, especializados en correas.</p>
-                <a href="#" class="button-verproductos">Ver todos nuestros productos</a>
+                <h1>Proinfalca - Ubicación</h1>
+                <p>Nos encontramos ubicados en la avenida Josefa Camejo, entre calle Jansen y Colina, cerca de TV UNEFM. Al norte está
+                    la avenida Josefa Camejo, al Sur la calle Vuelvancaras, al este TV UNEFM y la calle Jansen, y al Oeste la Unidad Médico
+                    Ambulatoria Falcón.</p>
+                <h4>Contactanos a traves de: </h4>
+                <ul>
+                    <li>correo@gmail.com</li>
+                    <li>04120000000 (Solo por WhastApp)</li>
+                </ul>
             </div>
             <img src="https://i.ibb.co/Bnk3Ts9/proinfalca.jpg" alt="Proinfalca sede" />
-        </section>
-
-        <section class="section-2">
-            <h2>Lista de Productos</h2>
-            <div class="section-2-cardContainer">
-                <article class="section-2-cardContainer-card">
-                    <img src="https://noticias.coches.com/wp-content/uploads/2019/03/Correa-de-Distribuci%C3%B3n-2.jpg" alt="Correa distribucion" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">10.99$</p>
-                        <h3><a href="#">Correa de distribucion</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://repuestoenlinea.com/wp-content/uploads/2021/05/Correa-De-Aire-Acondicionado-Hyundai-Getz-AAt-22260.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">13.99$</p>
-                        <h3><a href="#">Correa del aire acondicionado</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_939643-MLV45836962366_052021-V.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">8.00$</p>
-                        <h3><a href="#">Correa motor</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://fullrepuesto.com/wp-content/uploads/2021/11/Correa-de-tiempo-300x225.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">6.50$</p>
-                        <h3><a href="#">Correa de distribucion</a></h3>
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-            </div>
         </section>
     </main>
 
