@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Categorias') }}
+            {{ __('Roles') }}
         </h2>
         <style>
             .section-title {
@@ -18,33 +18,38 @@
     </x-slot>
 
     <div class="py-12">
+        @if (session('info'))
+        <div class="alert alert-success">
+            {{session('info')}}
+        </div>
+        @endif
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h2 class="section-title">Bienvenido a la sección de Categorias</h2>
-                @can('categorias.create')
-                <a href="categorias/create" class="btn btn-info add-button">Crear una nueva Categoría</a>
+
+                <h2 class="section-title">Bienvenido a la sección de Roles</h2>
+                @can('roles.create')
+                <a href="roles/create" class="btn btn-info add-button">Nuevo Rol</a>
                 @endcan
 
                 <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
                     <thead style="background-color:#6777ef">
-                        <th style="display: none;">ID</th>
-                        <th>Nombre</th>
-                        <th>Color</th>
+                        <th>ID</th>
+                        <th>Rol</th>
                         <th>Acciones</th>
                     </thead>
                     <tbody>
-                        @foreach ($categorias as $categoria)
+                        @foreach ($roles as $role)
                         <tr>
-                            <td style="display: none;">{{ $categoria->id }}</td>
-                            <td>{{ $categoria->nombre}}</td>
-                            <td style="background-color: {{ $categoria->color }};">{{ $categoria->color }}</td>
+                            <td>{{ $role->id }}</td>
+                            <td>{{ $role->name}}</td>
                             <td>
-                                @can('categorias.edit')
-                                <a class="btn btn-info" href="{{ route('categorias.edit',$categoria->id) }}">Editar</a>
+                                @can('roles.edit')
+                                <a class="btn btn-info" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                                 @endcan
 
-                                @can('categorias.destroy')
-                                {!! Form::open(['method' => 'DELETE','route' => ['categorias.destroy', $categoria->id],'style'=>'display:inline']) !!}
+                                @can('roles.destroy')
+                                {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                                 {!! Form::close() !!}
                                 @endcan

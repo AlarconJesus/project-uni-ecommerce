@@ -15,15 +15,30 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @can('productos.index')
                     <x-nav-link href="/productos">
                         {{ __('Productos') }}
                     </x-nav-link>
+                    @endcan
+                    @can('categorias.index')
                     <x-nav-link href="/categorias">
                         {{ __('Categorias') }}
                     </x-nav-link>
+                    @endcan
                     <x-nav-link href="/productocliente">
                         {{ __('Vista de productos para los clientes') }}
                     </x-nav-link>
+                    @can('users.index')
+                    <x-nav-link href="/users">
+                        {{ __('Usuarios') }}
+                    </x-nav-link>
+                    @endcan
+                    @can('roles.index')
+                    <x-nav-link href="/roles">
+                        {{ __('Roles') }}
+                    </x-nav-link>
+                    @endcan
                 </div>
             </div>
 

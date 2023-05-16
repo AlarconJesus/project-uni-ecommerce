@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,8 +36,10 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('productos', ProductoController::class);
-Route::resource('categorias', CategoriaController::class);
+Route::resource('productos', ProductoController::class)->names('productos');
+Route::resource('categorias', CategoriaController::class)->except('show');
+Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('users');
+Route::resource('roles', RoleController::class)->names('roles');
 
 //url para la vista que tendria el usuario de los productos
 Route::get('/productocliente', [ProductoController::class, 'getProductocliente'])->name('getProductoCliente');

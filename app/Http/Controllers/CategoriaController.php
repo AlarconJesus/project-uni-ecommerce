@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:categorias.index')->only('index');
+        $this->middleware('can:categorias.create')->only('create', 'store');
+        $this->middleware('can:categorias.edit')->only('edit', 'update');
+        $this->middleware('can:categorias.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +63,7 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        //borrar despues
     }
 
     /**
