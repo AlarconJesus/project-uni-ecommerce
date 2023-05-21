@@ -52,8 +52,17 @@
             <div class="categories-container">
                 @foreach ($categorias as $categoria)
                 <!-- revisar la referencia en el edit de algun index -->
-                <a href="categorias/{{$categoria->id}}" style="background-color: {{$categoria->color}};" class="btn btn-light">{{$categoria->nombre}}</a>
+                <!-- <a href="categorias/{{$categoria->id}}" style="background-color: {{$categoria->color}};" class="btn btn-light">{{$categoria->nombre}}</a> -->
+                <a href="productocliente?categoria={{$categoria->id}}" style="background-color: {{$categoria->color}};" class="btn btn-light">{{$categoria->nombre}}</a>
                 @endforeach
+            </div>
+            <div>
+                <form action="{{route('getProductoCliente')}}" method="get">
+                    <div class="btn-group mb-2">
+                        <input type="text" name="busqueda" class="form-control">
+                        <input type="submit" value="Enviar" class="btn btn-primary" style="color: ##2175fc;">
+                    </div>
+                </form>
             </div>
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg card-container">
@@ -71,6 +80,9 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+            <div class="mt-2">
+                {{$productos->appends(['busqueda'=>$busqueda])}}
             </div>
         </div>
     </div>

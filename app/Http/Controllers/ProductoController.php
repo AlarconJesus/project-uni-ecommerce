@@ -121,12 +121,23 @@ class ProductoController extends Controller
         return redirect()->route('productos.index');
     }
 
-    public function getProductoCliente()
+    public function getProductoCliente(Request $request)
     {
-        $categorias = Categoria::All();
-        $productos = Producto::All();
+        $busqueda = $request->busqueda;
+        $categoria = $request->categoria;
 
-        return view('clienteproducto', compact('productos', 'categorias'));
+
+        $categorias = Categoria::All();
+        if ($busqueda) {
+            $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')->paginate(2);
+        } else {
+            $productos = Producto::paginate(2);
+        }
+
+        if ($categoria) {
+            dd(Categoria::find($categoria)->Productos);
+        }
+        return view('clienteproducto', compact('productos', 'categorias', 'busqueda'));
     }
 
     // public function mostrarProductosCategorias(Categoria $categoria)
