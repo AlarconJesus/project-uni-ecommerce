@@ -40,12 +40,12 @@
                             <td style="background-color: {{ $categoria->color }};">{{ $categoria->color }}</td>
                             <td>
                                 @can('categorias.edit')
-                                <a class="btn btn-info" href="{{ route('categorias.edit',$categoria->id) }}">Editar</a>
+                                <a class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" href="{{ route('categorias.edit',$categoria->id) }}">Editar</a>
                                 @endcan
 
                                 @can('categorias.destroy')
                                 {!! Form::open(['method' => 'DELETE','route' => ['categorias.destroy', $categoria->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::submit('Borrar', ['class' => 'bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded']) !!}
                                 {!! Form::close() !!}
                                 @endcan
                             </td>

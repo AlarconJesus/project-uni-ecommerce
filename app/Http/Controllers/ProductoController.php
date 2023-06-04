@@ -6,7 +6,7 @@ use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Spatie\FlareClient\View;
 
 class ProductoController extends Controller
 {
@@ -54,6 +54,7 @@ class ProductoController extends Controller
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
+        $producto->stock = $request->stock;
         $producto->id_categoria = $request->id_categoria;
 
 
@@ -79,7 +80,9 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = Producto::find($id);
+
+        return view('productos.show', compact('producto'));
     }
 
     /**
@@ -123,28 +126,28 @@ class ProductoController extends Controller
 
     public function getProductoCliente(Request $request)
     {
-        $busqueda = $request->busqueda;
-        $categoria = $request->categoria;
 
+        $categorias = Categoria::all();
+        $productos = Producto::select('*');
 
-        $categorias = Categoria::All();
-        if ($busqueda) {
-            $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')->paginate(2);
-        } else {
-            $productos = Producto::paginate(2);
+        if ($request->has('categoria')) {
+            session(['categoria' => $request->categoria]);
+
+            $productos = $productos->where('id_categoria', '=', $request->categoria);
         }
 
-        if ($categoria) {
-            dd(Categoria::find($categoria)->Productos);
+        if ($request->has('busqueda')) {
+            $productos = $productos->where('nombre', 'LIKE', '%' . $request->busqueda . '%');
         }
+
+        $productos = $productos->paginate(2);
+        $busqueda = $request->buqueda;
+
         return view('clienteproducto', compact('productos', 'categorias', 'busqueda'));
     }
 
-    // public function mostrarProductosCategorias(Categoria $categoria)
-    // {
-    //     $productos = $categoria->Productos();
-    //     $categorias = Categoria::All();
-    //     dd($productos);
-    //     return view('clienteproducto', compact('productos', 'categorias'));
+    // TODO: Trabajar aqui
+    // if (auth()->user()->hasRole('Admin')) {
     // }
+
 }

@@ -117,12 +117,40 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Mi cuenta') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-dropdown-link>
+
+                            <x-dropdown-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-dropdown-link>
+
+                            @can('productos.index')
+                            <x-dropdown-link href="/productos">
+                                {{ __('Productos') }}
+                            </x-dropdown-link>
+                            @endcan
+                            @can('categorias.index')
+                            <x-dropdown-link href="/categorias">
+                                {{ __('Categorias') }}
+                            </x-dropdown-link>
+                            @endcan
+                            <x-dropdown-link href="/productocliente">
+                                {{ __('Vista de productos para los clientes') }}
+                            </x-dropdown-link>
+                            @can('users.index')
+                            <x-dropdown-link href="/users">
+                                {{ __('Usuarios') }}
+                            </x-dropdown-link>
+                            @endcan
+                            @can('roles.index')
+                            <x-dropdown-link href="/roles">
+                                {{ __('Roles') }}
+                            </x-dropdown-link>
+                            @endcan
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -137,7 +165,7 @@
                                 @csrf
 
                                 <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Cerrar sesión') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>

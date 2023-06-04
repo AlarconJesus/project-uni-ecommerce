@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->float('precio');
+            $table->integer('stock');
             $table->string('imagen')->nullable();
             $table->foreignId('id_categoria')
                 ->nullable()

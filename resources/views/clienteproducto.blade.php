@@ -51,16 +51,16 @@
             <!-- Categorias  -->
             <div class="categories-container">
                 @foreach ($categorias as $categoria)
-                <!-- revisar la referencia en el edit de algun index -->
-                <!-- <a href="categorias/{{$categoria->id}}" style="background-color: {{$categoria->color}};" class="btn btn-light">{{$categoria->nombre}}</a> -->
                 <a href="productocliente?categoria={{$categoria->id}}" style="background-color: {{$categoria->color}};" class="btn btn-light">{{$categoria->nombre}}</a>
                 @endforeach
             </div>
             <div>
-                <form action="{{route('getProductoCliente')}}" method="get">
+                <!-- volver a colocar como route llamando al name -->
+                <form action="productocliente" method="get">
                     <div class="btn-group mb-2">
+                        <input type="hidden" name="categoria" value="{{session('categoria')}}">
                         <input type="text" name="busqueda" class="form-control">
-                        <input type="submit" value="Enviar" class="btn btn-primary" style="color: ##2175fc;">
+                        <input type="submit" value="Enviar" class="btn btn-primary">
                     </div>
                 </form>
             </div>
@@ -76,7 +76,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$producto->nombre}}</h5>
                         <p class="card-text">{{$producto->precio}} $</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+                        <a href="/productos/{{$producto->id}}" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
                 @endforeach

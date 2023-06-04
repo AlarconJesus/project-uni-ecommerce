@@ -9,12 +9,12 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1>Crear un Rol</h1>
+                <h2 class="h2">Crear un Rol</h2>
 
                 {!! Form::open(['route' => 'roles.store']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del rol']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del rol', 'required' => 'required']) !!}
 
                     @error('name')
                     <small class="text-danger">

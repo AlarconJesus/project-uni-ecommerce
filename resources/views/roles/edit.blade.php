@@ -21,7 +21,7 @@
                 {!! Form::model($role, ['route' => ['roles.update', $role], 'method' => 'put']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del rol']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del rol', 'required' => 'required']) !!}
 
                     @error('name')
                     <small class="text-danger">

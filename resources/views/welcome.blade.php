@@ -494,7 +494,7 @@
     <main>
         <section class="section-1">
             <div class="section-1-container">
-                <h1>Proinfalca - Especialistas en respuestos</h1>
+                <h1>Proinfalca - Especialistas en Correas</h1>
                 <p>Con más de 10 años de experiencia en el mercado, el equipo de Proinfalca te ofrece
                     la mayor variedad en respuestos, especializados en correas.</p>
                 <a href="#" class="button-verproductos">Ver todos nuestros productos</a>

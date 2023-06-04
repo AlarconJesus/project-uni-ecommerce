@@ -16,28 +16,35 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" class="form-control">
+                                <input type="text" name="nombre" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="descripcion">Descripcion</label>
-                                <input type="text" name="descripcion" class="form-control">
+                                <input type="text" name="descripcion" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="stock">Cantidad en almacen</label>
+                                <input type="number" name="stock" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="precio">Precio</label>
-                                <input type="number" step="any" name="precio" class="form-control">
+                                <input type="number" step="any" name="precio" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="imagen">Imagen</label>
-                                <input type="file" name="imagen" class="form-control">
+                                <input type="file" name="imagen" class="form-control" required>
                             </div>
                         </div>
 
@@ -50,7 +57,7 @@
                             <div class="form-group">
                                 <label for="id_categoria">Categoría</label>
                                 <div class="form-check">
-                                    <select name="id_categoria" id="">
+                                    <select name="id_categoria" id="" required>
                                         @foreach($categorias as $categoria)
                                         <option value="{{$categoria->id}}">
                                             <label class="form-check-label" for="{{$categoria->id}}">

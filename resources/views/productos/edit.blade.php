@@ -8,16 +8,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1>Editar producto</h1>
+                <h2 class="h2">Editar producto</h2>
 
-                <form action="{{ route('productos.update', $producto) }}" method="POST">
+                <form action="{{ route('productos.update', $producto) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" required name="nombre" class="form-control" value={{$producto->nombre}}>
+                                <input type="text" required name="nombre" class="form-control" required value={{$producto->nombre}}>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -31,10 +31,25 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="precio">Precio</label>
-                                    <input type="number" required step="any" name="precio" class="form-control" value={{$producto->precio}}>
+                                    <label for="stock">Cantidad en almacen</label>
+                                    <input type="number" name="stock" class="form-control" required value="{{$producto->stock}}">
                                 </div>
                             </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input type="number" required step="any" name="precio" class="form-control" required value={{$producto->precio}}>
+                                </div>
+                            </div>
+
+                            <!-- TODO Funcionalidad para actualizar imagenes para ser realizada -->
+                            <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="imagen">Imagen</label>
+                                    <input type="file" name="imagen" class="form-control">
+                                </div>
+                            </div> -->
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
 
