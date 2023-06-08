@@ -42,9 +42,11 @@ Route::resource('categorias', CategoriaController::class)->except('show');
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('users');
 Route::resource('roles', RoleController::class)->names('roles');
 // Route::get('payment/{$id}', [PaymentController::class, 'detalle'])->name('payment.detalle');
-Route::resource('payment', PaymentController::class)->only(['store'])->names('payment'); // en observacion
+Route::resource('payment', PaymentController::class)->only(['store', 'update'])->names('payment'); // en observacion
 Route::get('payment/{id}', [PaymentController::class, 'detalle']);
 Route::get('miscompras', [PaymentController::class, 'miscompras'])->name('miscompras');
+Route::get('ventas', [PaymentController::class, 'ventas'])->name('ventas');
+Route::get('ventas/detalle/{id}', [PaymentController::class, 'detalleventa']);
 
 //url para la vista que tendria el usuario de los productos
 Route::get('/productocliente', [ProductoController::class, 'getProductocliente'])->name('getProductoCliente');

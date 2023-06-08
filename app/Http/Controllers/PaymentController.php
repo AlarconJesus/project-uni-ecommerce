@@ -6,9 +6,16 @@ use App\Models\Payment;
 use App\Models\Producto;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PDO;
 
 class PaymentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:ventas')->only('ventas');
+        $this->middleware('can:ventas')->only('detalleventa');
+        $this->middleware('can:ventas')->only('update');
+    }
     public function detalle($id)
     {
         $producto = Producto::find($id);
@@ -42,12 +49,59 @@ class PaymentController extends Controller
     {
         $userId = auth()->user()->id;
         $usuario = User::find($userId);
-        $compras1 = $usuario->Payments->Producto();
-        dd($compras1);
         $compras = Payment::All();
 
         $compras = $compras->where('id_user', '=', $userId);
+        foreach ($compras as $compra) {
+            $producto = Producto::find($compra->id_producto);
+
+            $compra->producto = $producto;
+        }
 
         return view('payments.miscompras', compact('compras'));
+    }
+
+    public function ventas()
+    {
+        $ventas = Payment::All();
+        // TODO: Hacer que las ventas vengan ordenadas por sin verificar y por fecha mas reciente
+        foreach ($ventas as $venta) {
+            $producto = Producto::find($venta->id_producto);
+            $comprador = User::find($venta->id_user);
+
+            if ($producto) {
+                $venta->producto = $producto;
+            }
+
+            if ($comprador) {
+                $venta->comprador = $comprador->name;
+                $venta->compradorEmail = $comprador->email;
+            }
+        }
+
+        return view('payments.ventas', compact('ventas'));
+    }
+
+    public function detalleventa($id)
+    {
+        $venta = Payment::find($id);
+
+        $producto = Producto::find($venta->id_producto);
+        $comprador = User::find($venta->id_user);
+
+        $venta->producto = $producto;
+        $venta->comprador = $comprador->name;
+        $venta->compradorEmail = $comprador->email;
+
+        return view('payments.detalleventa', compact('venta'));
+    }
+
+    public function update(Request $request, Payment $payment)
+    {
+        $payment->verificado = $request->input('verificado');
+
+        $payment->save();
+
+        return redirect()->route('ventas');
     }
 }

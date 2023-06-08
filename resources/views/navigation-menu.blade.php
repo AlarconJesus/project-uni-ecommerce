@@ -39,6 +39,14 @@
                         {{ __('Roles') }}
                     </x-nav-link>
                     @endcan
+                    <x-nav-link href="/miscompras">
+                        {{ __('Mis compras') }}
+                    </x-nav-link>
+                    @can('ventas')
+                    <x-nav-link href="/ventas">
+                        {{ __('Ventas') }}
+                    </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -124,34 +132,6 @@
                                 {{ __('Perfil') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
-                            </x-dropdown-link>
-
-                            @can('productos.index')
-                            <x-dropdown-link href="/productos">
-                                {{ __('Productos') }}
-                            </x-dropdown-link>
-                            @endcan
-                            @can('categorias.index')
-                            <x-dropdown-link href="/categorias">
-                                {{ __('Categorias') }}
-                            </x-dropdown-link>
-                            @endcan
-                            <x-dropdown-link href="/productocliente">
-                                {{ __('Vista de productos para los clientes') }}
-                            </x-dropdown-link>
-                            @can('users.index')
-                            <x-dropdown-link href="/users">
-                                {{ __('Usuarios') }}
-                            </x-dropdown-link>
-                            @endcan
-                            @can('roles.index')
-                            <x-dropdown-link href="/roles">
-                                {{ __('Roles') }}
-                            </x-dropdown-link>
-                            @endcan
-
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                 {{ __('API Tokens') }}
@@ -210,6 +190,11 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
+                <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                    {{ __('Profile') }}
+                </x-responsive-nav-link>
+
+                <!--TODO rutas del hamburguer menu  -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

@@ -39,5 +39,7 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'users.index', 'description' => 'Ver listado de Usuarios'])->syncRoles([$role1]);
         Permission::create(['name' => 'users.edit', 'description' => 'Editar Usuarios'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'ventas', 'description' => 'Ver el historial de ventas'])->syncRoles([$role1]);
     }
 }
