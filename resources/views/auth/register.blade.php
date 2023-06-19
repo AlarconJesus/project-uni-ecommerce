@@ -14,7 +14,6 @@
                 <x-label for="name" value="{{ __('Nombre') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
-
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Correo') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
@@ -25,10 +24,13 @@
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4 mb-4">
                 <x-label for="password_confirmation" value="{{ __('Confirmar Contraseña') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
+
+            <!-- Captcha -->
+            <div class="g-recaptcha" data-sitekey="6LdxfZ4mAAAAAEIuM66D62h4p0CfUfSTbHAQcuh2"></div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
             <div class="mt-4">
@@ -60,7 +62,8 @@
     </x-authentication-card>
 
     @push('scripts')
-    <script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script>
         grecaptcha.ready(function() {
             document.getElementById('registerForm').addEventListener("submit", function(event) {
                 event.preventDefault();
@@ -74,6 +77,6 @@
                     });
             });
         });
-    </script>
+    </script> -->
     @endpush
 </x-guest-layout>

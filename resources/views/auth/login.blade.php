@@ -22,10 +22,13 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4 mb-4">
                 <x-label for="password" value="{{ __('Contraseña') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
+
+            <!-- Captcha -->
+            <div class="g-recaptcha" data-sitekey="6LdxfZ4mAAAAAEIuM66D62h4p0CfUfSTbHAQcuh2"></div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
@@ -47,4 +50,23 @@
             </div>
         </form>
     </x-authentication-card>
+
+    @push('scripts')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script>
+        grecaptcha.ready(function() {
+            document.getElementById('registerForm').addEventListener("submit", function(event) {
+                event.preventDefault();
+                grecaptcha.execute('{{ config('
+                        services.recaptcha.site_key ') }}', {
+                            action: 'register'
+                        })
+                    .then(function(token) {
+                        document.getElementById("recaptcha_token").value = token;
+                        document.getElementById('registerForm').submit();
+                    });
+            });
+        });
+    </script> -->
+    @endpush
 </x-guest-layout>

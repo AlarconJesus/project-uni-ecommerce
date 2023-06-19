@@ -13,7 +13,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.6LeS5mImAAAAAPeopGU6ue0kdMBJkJXFe0Qnxzb9') }}"></script>
 </head>
 
 <body>
