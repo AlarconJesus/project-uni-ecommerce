@@ -19,10 +19,22 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg  p-3">
                 <h2 class="section-title">Bienvenido a la sección de Productos</h2>
+
+
+                @if ( $productos->isEmpty())
+                <div>
+                    <h2 class="h3 m-2">No hay productos registrados!</h2>
+                    <img style="width: 150px;" src="https://previews.123rf.com/images/alekseyvanin/alekseyvanin1710/alekseyvanin171000985/88110651-icono-de-la-l%C3%ADnea-de-la-correa-del-motor-del-autom%C3%B3vil-muestra-del-vector-del-esquema-pictograma.jpg" alt="Imagen de correa">
+                    @can('productos.create')
+                    <a href="productos/create" class="bg-blue-500 btn btn-primary add-button">Crear un nuevo Producto</a>
+                    @endcan
+                </div>
+                @else
+
                 @can('productos.create')
-                <a href="productos/create" class="btn btn-info add-button">Crear un nuevo Producto</a>
+                <a href="productos/create" class="bg-blue-500 btn btn-primary add-button">Crear un nuevo Producto</a>
                 @endcan
 
                 <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
@@ -56,12 +68,12 @@
                             </td>
                             <td>
                                 @can('productos.edit')
-                                <a class="btn btn-info" href="{{ route('productos.edit',$producto->id) }}">Editar</a>
+                                <a class="bg-blue-500 btn btn-primary" href="{{ route('productos.edit',$producto->id) }}">Editar</a>
                                 @endcan
 
                                 @can('productos.destroy')
                                 {!! Form::open(['method' => 'DELETE','route' => ['productos.destroy', $producto->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::submit('Borrar', ['class' => 'bg-red-500 btn btn-danger']) !!}
                                 {!! Form::close() !!}
                                 @endcan
                             </td>
@@ -69,6 +81,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                @endif
+
             </div>
         </div>
     </div>

@@ -27,7 +27,7 @@
                     </x-nav-link>
                     @endcan
                     <x-nav-link href="/productocliente">
-                        {{ __('Vista de productos para los clientes') }}
+                        {{ __('Productos ⚙️') }}
                     </x-nav-link>
                     @can('users.index')
                     <x-nav-link href="/users">
@@ -190,14 +190,43 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
 
                 <!--TODO rutas del hamburguer menu  -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-responsive-nav-link>
+                @can('productos.index')
+                <x-responsive-nav-link href="/productos">
+                    {{ __('Productos') }}
+                </x-responsive-nav-link>
+                @endcan
+                @can('categorias.index')
+                <x-responsive-nav-link href="/categorias">
+                    {{ __('Categorias') }}
+                </x-responsive-nav-link>
+                @endcan
+                <x-responsive-nav-link href="/productocliente">
+                    {{ __('Productos ⚙️') }}
+                </x-responsive-nav-link>
+                @can('users.index')
+                <x-responsive-nav-link href="/users">
+                    {{ __('Usuarios') }}
+                </x-responsive-nav-link>
+                @endcan
+                @can('roles.index')
+                <x-responsive-nav-link href="/roles">
+                    {{ __('Roles') }}
+                </x-responsive-nav-link>
+                @endcan
+                <x-responsive-nav-link href="/miscompras">
+                    {{ __('Mis compras') }}
+                </x-responsive-nav-link>
+                @can('ventas')
+                <x-responsive-nav-link href="/ventas">
+                    {{ __('Ventas') }}
+                </x-responsive-nav-link>
+                @endcan
+
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                 <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">

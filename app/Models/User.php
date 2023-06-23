@@ -10,8 +10,11 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Cog\Contracts\Ban\Bannable as BannableInterface;
+use Cog\Laravel\Ban\Traits\Bannable;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements BannableInterface
 {
     use HasApiTokens;
     use HasFactory;
@@ -19,6 +22,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use Bannable;
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +33,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'telefono',
+        'pregunta_secreta',
+        'respuesta_secreta',
+        'banned_at',
     ];
 
     /**

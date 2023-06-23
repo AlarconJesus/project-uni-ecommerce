@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg pt-10 px-10">
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
                 <h2 class="h2">Editar Categoría</h2>
 
                 <form action="{{ route('categorias.update', $categoria) }}" method="POST">
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <!-- boton con tailwind -->
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mt-4">Guardar</button>
+                            <button type="submit" class="bg-blue-500 btn btn-primary mt-10">Guardar</button>
                         </div>
                 </form>
             </div>

@@ -15,9 +15,9 @@ class CategoriaSeeder extends Seeder
      */
     public function run()
     {
-        Categoria::create(['nombre' => 'Toyota', 'color' => '#0079FF']);
-        Categoria::create(['nombre' => 'Ford', 'color' => '#00DFA2']);
-        Categoria::create(['nombre' => 'Hyundai', 'color' => '#F6FA70']);
-        Categoria::create(['nombre' => 'chevrolet', 'color' => '#FF0060']);
+        Categoria::create(['nombre' => 'Automotriz', 'color' => '#1C658C']);
+        Categoria::create(['nombre' => 'Multicanal', 'color' => '#398AB9']);
+        Categoria::create(['nombre' => 'Industrial', 'color' => '#D8D2CB']);
+        Categoria::create(['nombre' => 'De Tiempo', 'color' => '#EEEEEE']);
     }
 }

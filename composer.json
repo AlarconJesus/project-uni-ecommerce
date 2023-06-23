@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "cybercog/laravel-ban": "^4.8",
         "guzzlehttp/guzzle": "^7.2",
+        "juliomotol/laravel-auth-timeout": "^3.1",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^3.0",
         "laravel/sanctum": "^3.0",

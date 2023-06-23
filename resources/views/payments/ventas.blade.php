@@ -25,10 +25,16 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
                 <h2 class="section-title h2">Historial de ventas</h2>
                 <!-- protected $fillable = ['nombre', 'fecha', 'moneda', 'metodo_pago', 'monto', 'IVA', 'referencia', 'comentario', 'id_user', 'id_producto'];
         protected $fillable = ['nombre', 'descripcion', 'precio', 'stock', 'imagen', 'id_categoria']; -->
+                @if ( $ventas->isEmpty())
+                <div>
+                    <h2 class="h3 m-2">No hay ventas realizadas aún!</h2>
+                    <img style="width: 150px;" src="https://previews.123rf.com/images/alekseyvanin/alekseyvanin1710/alekseyvanin171000985/88110651-icono-de-la-l%C3%ADnea-de-la-correa-del-motor-del-autom%C3%B3vil-muestra-del-vector-del-esquema-pictograma.jpg" alt="Imagen de correa">
+                </div>
+                @else
 
                 <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
                     <thead style="background-color:#6777ef">
@@ -83,6 +89,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                @endif
             </div>
         </div>
     </div>

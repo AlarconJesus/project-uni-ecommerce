@@ -6,9 +6,9 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1>Crear un producto</h1>
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-12">
+                <h2 class="h2">Crear un producto</h2>
 
                 <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -48,7 +48,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                             @if(sizeof($categorias) == 0)
                             <label for="id_categoria">Categoría</label>
                             <h3>No hay categorias registradas, crea una primero. </h3>
@@ -69,9 +69,10 @@
                                 </div>
                             </div>
                             @endif
+                            <button type="submit" class="bg-blue-500 btn btn-primary mt-2">Guardar</button>
+
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
             </div>

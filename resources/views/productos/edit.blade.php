@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
                 <h2 class="h2">Editar producto</h2>
 
                 <form action="{{ route('productos.update', $producto) }}" method="POST" enctype="multipart/form-data">
@@ -75,7 +75,7 @@
                                 @endif
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="bg-blue-500 btn btn-primary mt-2">Guardar</button>
                         </div>
                 </form>
             </div>

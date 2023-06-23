@@ -19,10 +19,21 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h2 class="section-title">Bienvenido a la sección de Categorias</h2>
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg  p-10">
+                <h2 class="section-title">Bienvenido a la sección de Categorías</h2>
+
+                @if ( $categorias->isEmpty())
+                <div>
+                    <h2 class="h3 m-2">No hay categorías registradas!</h2>
+                    <img style="width: 150px;" src="https://previews.123rf.com/images/alekseyvanin/alekseyvanin1710/alekseyvanin171000985/88110651-icono-de-la-l%C3%ADnea-de-la-correa-del-motor-del-autom%C3%B3vil-muestra-del-vector-del-esquema-pictograma.jpg" alt="Imagen de correa">
+                    @can('categorias.create')
+                    <a href="categorias/create" class="btn btn-warning add-button">Crear una nueva Categoría</a>
+                    @endcan
+                </div>
+                @else
+
                 @can('categorias.create')
-                <a href="categorias/create" class="btn btn-info add-button">Crear una nueva Categoría</a>
+                <a href="categorias/create" class="bg-blue-500 btn btn-primary add-button">Crear una nueva Categoría</a>
                 @endcan
 
                 <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
@@ -40,12 +51,12 @@
                             <td style="background-color: {{ $categoria->color }};">{{ $categoria->color }}</td>
                             <td>
                                 @can('categorias.edit')
-                                <a class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" href="{{ route('categorias.edit',$categoria->id) }}">Editar</a>
+                                <a class="bg-blue-500 btn btn-primary" href="{{ route('categorias.edit',$categoria->id) }}">Editar</a>
                                 @endcan
 
                                 @can('categorias.destroy')
                                 {!! Form::open(['method' => 'DELETE','route' => ['categorias.destroy', $categoria->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Borrar', ['class' => 'bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded']) !!}
+                                {!! Form::submit('Borrar', ['class' => 'bg-red-500 btn btn-danger']) !!}
                                 {!! Form::close() !!}
                                 @endcan
                             </td>
@@ -53,6 +64,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                @endif
             </div>
         </div>
     </div>

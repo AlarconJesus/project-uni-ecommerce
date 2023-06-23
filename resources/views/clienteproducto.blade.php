@@ -66,6 +66,14 @@
             </div>
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg card-container">
+                @if ( $productos->isEmpty())
+                <div>
+                    <h2 class="h3 m-2">No hemos obtenido productos!</h2>
+                    <img style="width: 150px;" src="https://previews.123rf.com/images/alekseyvanin/alekseyvanin1710/alekseyvanin171000985/88110651-icono-de-la-l%C3%ADnea-de-la-correa-del-motor-del-autom%C3%B3vil-muestra-del-vector-del-esquema-pictograma.jpg" alt="Imagen de correa">
+                    <a href="/productocliente" class="btn btn-warning m-2">Ir a Productos</a>
+                </div>
+                @endif
+
                 @foreach ($productos as $producto )
                 <div class="card" style="width: 18rem;">
                     @if ($producto->imagen)

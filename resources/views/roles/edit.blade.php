@@ -14,9 +14,9 @@
         </div>
         @endif
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1>Editar un Rol</h1>
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
+                <h2 class="h2">Editar un Rol</h2>
 
                 {!! Form::model($role, ['route' => ['roles.update', $role], 'method' => 'put']) !!}
                 <div class="form-group">
@@ -30,7 +30,7 @@
                     @enderror
                 </div>
 
-                <h2>Lista de permisos</h2>
+                <h2 class="mb-2 mt-2">Lista de permisos</h2>
                 @foreach ($permissions as $permission)
                 <div>
                     <label>
@@ -40,7 +40,7 @@
                 </div>
                 @endforeach
 
-                {!! Form::submit('Crear rol', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Guardar rol', ['class' => 'bg-blue-500 btn btn-primary mt-2']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

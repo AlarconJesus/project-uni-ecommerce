@@ -25,11 +25,11 @@
         @endif
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg  p-10">
 
                 <h2 class="section-title">Bienvenido a la sección de Roles</h2>
                 @can('roles.create')
-                <a href="roles/create" class="btn btn-info add-button">Nuevo Rol</a>
+                <a href="roles/create" class="bg-blue-500 btn btn-primary add-button">Nuevo Rol</a>
                 @endcan
 
                 <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
@@ -45,12 +45,12 @@
                             <td>{{ $role->name}}</td>
                             <td>
                                 @can('roles.edit')
-                                <a class="btn btn-info" href="{{ route('roles.edit',$role->id) }}">Editar</a>
+                                <a class="bg-blue-500 btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                                 @endcan
 
                                 @can('roles.destroy')
                                 {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::submit('Borrar', ['class' => 'bg-red-500 btn btn-danger']) !!}
                                 {!! Form::close() !!}
                                 @endcan
                             </td>

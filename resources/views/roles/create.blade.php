@@ -7,14 +7,14 @@
 
     <div class="py-12">
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
                 <h2 class="h2">Crear un Rol</h2>
 
                 {!! Form::open(['route' => 'roles.store']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del rol', 'required' => 'required']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control mb-3', 'placeholder' => 'Ingrese el nombre del rol', 'required' => 'required']) !!}
 
                     @error('name')
                     <small class="text-danger">
@@ -23,7 +23,7 @@
                     @enderror
                 </div>
 
-                <h2>Lista de permisos</h2>
+                <h2 class="mb-2">Lista de permisos</h2>
                 @foreach ($permissions as $permission)
                 <div>
                     <label>
@@ -33,7 +33,7 @@
                 </div>
                 @endforeach
 
-                {!! Form::submit('Crear rol', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Crear rol', ['class' => 'bg-blue-500 btn btn-primary mt-2']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

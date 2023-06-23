@@ -26,6 +26,20 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+    public function ban(User $user)
+    {
+        return view('users.ban', compact('user'));
+    }
+
+    public function updateBan(User $user)
+    {
+        if (!empty(request('banned'))) {
+            $user->ban();
+        }
+
+        return redirect('users.index');
+    }
+
     public function edit(User $user)
     {
         $roles = Role::all();

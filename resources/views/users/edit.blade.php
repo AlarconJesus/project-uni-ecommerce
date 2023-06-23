@@ -12,9 +12,9 @@
         </div>
         @endif
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1>Asignar Rol</h1>
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
+                <h2 class="h2">Asignar Rol</h2>
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -28,6 +28,12 @@
                         <div class="form-group">
                             <p class="h5">Email</p>
                             <p class="form-control">{{$user->email}}</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <p class="h5">Teléfono</p>
+                            <p class="form-control">{{$user->telefono}}</p>
                         </div>
                     </div>
 
@@ -44,7 +50,7 @@
                         @endforeach
                     </div>
 
-                    {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::submit('Asignar rol', ['class' => 'bg-blue-500 btn btn-primary mt-2']) !!}
                     {!! Form::close() !!}
                     <!-- Esto se realiza asi usando html collective -->
                 </div>

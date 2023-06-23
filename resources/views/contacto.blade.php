@@ -496,7 +496,7 @@
                     Ambulatoria Falcón.</p>
                 <h4>Contactanos a traves de: </h4>
                 <ul>
-                    <li>correo@gmail.com</li>
+                    <li>proinfalca@gmail.com</li>
                     <li>04120000000 (Solo por WhastApp)</li>
                 </ul>
             </div>
