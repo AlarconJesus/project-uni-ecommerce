@@ -60,7 +60,7 @@
                     <div class="btn-group mb-2">
                         <input type="hidden" name="categoria" value="{{session('categoria')}}">
                         <input type="text" name="busqueda" class="form-control">
-                        <input type="submit" value="Enviar" class="btn btn-primary">
+                        <input type="submit" value="Enviar" class="bg-blue-500 btn btn-primary">
                     </div>
                 </form>
             </div>

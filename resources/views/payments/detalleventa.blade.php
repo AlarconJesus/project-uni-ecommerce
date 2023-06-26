@@ -94,14 +94,14 @@
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
                                 <label for="monto">Monto</label>
-                                <input type="number" required step="any" name="monto" class="form-control" value="{{$venta->producto->precio}}" disabled>
+                                <input type="number" required step="any" name="monto" class="form-control" value="{{$venta->monto}}" disabled>
                             </div>
                         </div>
 
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
                                 <label for="">Tasa del día</label>
-                                <input type="number" step="any" name="" class="form-control" required disabled>
+                                <input type="number" step="any" name="tasa" class="form-control" value="{{$venta->tasa}}" required disabled>
                             </div>
                         </div>
 

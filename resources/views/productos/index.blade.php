@@ -15,6 +15,7 @@
                 margin-bottom: 30px;
             }
         </style>
+
     </x-slot>
 
     <div class="py-12">

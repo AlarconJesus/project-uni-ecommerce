@@ -127,11 +127,17 @@
                     var(--bright-cyan));
             border-radius: 100px;
             color: var(--very-light-gray);
+            white-space: nowrap;
         }
 
         .button-login:hover,
         .button-verproductos:hover {
             opacity: 0.8;
+        }
+
+        .navbar-menu .button-login {
+            display: none;
+            margin-top: 30px;
         }
 
         section {
@@ -159,18 +165,14 @@
         }
 
         .section-1 {
+            min-height: 600px;
             position: relative;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-        }
-
-        .section-1 img {
-            max-width: 600px;
-            margin-left: 100px;
-            /* position: absolute;
-  top: 0px;
-  right: 0px; */
+            background: linear-gradient(rgba(5, 7, 12, 0.6), rgba(5, 7, 12, 0.6)), url('https://i.ibb.co/Bnk3Ts9/proinfalca.jpg') no-repeat center fixed;
+            background-position: 0% 10%;
+            background-size: cover;
         }
 
         .section-1-container {
@@ -178,12 +180,14 @@
         }
 
         .section-1 h1 {
+            color: #ffffff;
             margin-bottom: 30px;
             font-size: 42px;
             font-weight: 400;
         }
 
         .section-1 p {
+            color: rgb(222, 222, 222);
             margin-bottom: 40px;
         }
 
@@ -260,13 +264,6 @@
             margin-bottom: 10px;
         }
 
-        /*=====================Acerca de =======================*/
-        .card-acercade {
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
         /*=====================Footer=======================*/
         .footer {
             position: relative;
@@ -324,6 +321,7 @@
         }
 
         .footer-rights {
+            align-self: end;
             justify-self: end;
             grid-area: footer-rights;
             white-space: nowrap;
@@ -405,11 +403,16 @@
                 display: flex;
             }
 
+            .navbar-menu.active .button-login {
+                display: block;
+            }
+
             .navbar-menu li {
                 height: 56px;
                 margin-right: 0;
             }
         }
+
 
         /*=====================Queries for the Section-1=======================*/
         @media screen and (max-width: 840px) {
@@ -488,12 +491,31 @@
             <img src="https://i.ibb.co/3h5Qrbj/logoproinfalca.png" alt="proinfalca" class="logo" />
             <ul class="navbar-menu">
                 <li><a href="{{url('/')}}">Inicio</a></li>
-                <li class="link-active"><a href="{{url('/acercade')}}">Acerca de</a></li>
+                <li><a href="{{url('/acercade')}}">Acerca de</a></li>
                 <li><a href="{{url('/contacto')}}">Contacto</a></li>
+                @auth
+                <a href="{{ url('/dashboard') }}" class="button-login">Ingresar</a>
+                @else
+                <a href="{{ route('login') }}" class="button-login">Ingresar</a>
+                @endauth
             </ul>
             <div class="navbar-toggle">
-                <img src="./images/icon-hamburger.svg" alt="hamburguer icon" class="navbar-hamburguerIcon" />
-                <img src="./images/icon-close.svg" alt="close icon" class="navbar-closeIcon" />
+                <svg alt="hamburguer icon" class="navbar-hamburguerIcon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #cdd1d7
+                        }
+                    </style>
+                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                </svg>
+                <svg alt="close icon" class="navbar-closeIcon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #cdd1d7
+                        }
+                    </style>
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
             </div>
             @if (Route::has('login'))
             @auth
@@ -520,7 +542,6 @@
                     de un negocio especializado en correas de distinto tipo, tamaño, y función, surge PROINFALCA, para dar al pueblo
                     falconiano repuestos de calidad especializándose en correas.</p>
             </div>
-            <img src="https://i.ibb.co/Bnk3Ts9/proinfalca.jpg" alt="Proinfalca sede" />
         </section>
 
         <section class="section-2">
@@ -557,6 +578,8 @@
     <footer class="footer">
         <img src="https://i.ibb.co/3h5Qrbj/logoproinfalca.png" alt="proinfalca" class="logo" />
         <div class="footer-social">
+
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
             <ul>
                 <li>
                     <a href="#" aria-label="facebook">
@@ -598,7 +621,14 @@
         <img class="footer-map" src="https://i.ibb.co/TmH21T5/ubicacion-proinfalca.png" alt="Mapa">
         <p class="footer-rights">© Proinfalca </p>
     </footer>
+    <script>
+        const navbarToggle = document.querySelector(".navbar-toggle");
+        const navbarMenu = document.querySelector(".navbar-menu");
 
+        navbarToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

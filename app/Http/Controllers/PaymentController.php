@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Models\Producto;
 use App\Models\User;
+use App\Models\Dolar;
 use Illuminate\Http\Request;
 use PDO;
 
@@ -19,9 +20,11 @@ class PaymentController extends Controller
     public function detalle($id)
     {
         $producto = Producto::find($id);
+        $dolarActual = Dolar::latest('fecha')->first();
 
         $userId = auth()->user()->id;
-        return view('payments.detalle', compact('producto', 'userId'));
+
+        return view('payments.detalle', compact('producto', 'userId', 'dolarActual'));
     }
 
     public function store(Request $request)
@@ -31,8 +34,9 @@ class PaymentController extends Controller
         $payment->nombre = $request->nombre;
         $payment->fecha = $request->fecha;
         $payment->metodo_pago = $request->metodo_pago;
-        $payment->monto = $request->monto;
         $payment->moneda = $request->moneda;
+        $payment->monto = $request->monto;
+        $payment->tasa = $request->tasa;
         $payment->IVA = $request->IVA;
         $payment->referencia = $request->referencia;
         $payment->comentario = $request->comentario;
@@ -80,6 +84,11 @@ class PaymentController extends Controller
         }
 
         return view('payments.ventas', compact('ventas'));
+    }
+
+    public function contactanos($id)
+    {
+        return view('payments.contactanos', compact('id'));
     }
 
     public function detalleventa($id)

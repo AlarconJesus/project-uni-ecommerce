@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DolarController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RoleController;
@@ -46,7 +47,9 @@ Route::resource('payment', PaymentController::class)->only(['store', 'update'])-
 Route::get('payment/{id}', [PaymentController::class, 'detalle']);
 Route::get('miscompras', [PaymentController::class, 'miscompras'])->name('miscompras');
 Route::get('ventas', [PaymentController::class, 'ventas'])->name('ventas');
+Route::get('contactanos/{id}', [PaymentController::class, 'contactanos'])->name('contactanos');
 Route::get('ventas/detalle/{id}', [PaymentController::class, 'detalleventa']);
+Route::resource('dolar', DolarController::class)->except('show')->names('dolar');
 
 Route::get('users/{$user}/ban', [UserController::class, 'ban'])->name('users.ban');
 Route::patch('users/{$user}/updateBan', [UserController::class, 'updateBan'])->name('users.updateBan');

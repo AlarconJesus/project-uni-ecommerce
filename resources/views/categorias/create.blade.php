@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre">Nombre *</label>
                                 <input type="text" name="nombre" class="form-control" required>
                             </div>
                         </div>

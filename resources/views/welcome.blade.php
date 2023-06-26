@@ -119,6 +119,7 @@
 
         .button-login,
         .button-verproductos {
+            white-space: nowrap;
             padding: 13px 30px;
             font-size: 16px;
             text-decoration: none;
@@ -132,6 +133,11 @@
         .button-login:hover,
         .button-verproductos:hover {
             opacity: 0.8;
+        }
+
+        .navbar-menu .button-login {
+            display: none;
+            margin-top: 30px;
         }
 
         section {
@@ -159,18 +165,14 @@
         }
 
         .section-1 {
+            min-height: 600px;
             position: relative;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-        }
-
-        .section-1 img {
-            max-width: 600px;
-            margin-left: 100px;
-            /* position: absolute;
-  top: 0px;
-  right: 0px; */
+            background: linear-gradient(rgba(5, 7, 12, 0.6), rgba(5, 7, 12, 0.6)), url('https://i.ibb.co/Bnk3Ts9/proinfalca.jpg') no-repeat center fixed;
+            background-position: 0% 10%;
+            background-size: cover;
         }
 
         .section-1-container {
@@ -178,12 +180,14 @@
         }
 
         .section-1 h1 {
+            color: #ffffff;
             margin-bottom: 30px;
             font-size: 42px;
             font-weight: 400;
         }
 
         .section-1 p {
+            color: rgb(222, 222, 222);
             margin-bottom: 40px;
         }
 
@@ -260,6 +264,38 @@
             margin-bottom: 10px;
         }
 
+        /*=====================Section 3=======================*/
+
+        .section-3 {
+            background-color: var(--light-grayish-blue);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 500px;
+        }
+
+        .section-3 h2 {
+            margin-bottom: 60px;
+            font-size: 34px;
+            font-weight: 400;
+        }
+
+        .section-3-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section-3-container img {
+            width: 150px;
+            margin: 10px;
+            opacity: 0.8;
+        }
+
+
         /*=====================Acerca de =======================*/
         .card-acercade {
             border-radius: 15px;
@@ -325,11 +361,14 @@
 
         .footer-rights {
             justify-self: end;
+            align-self: end;
             grid-area: footer-rights;
             white-space: nowrap;
             text-align: right;
             vertical-align: bottom;
         }
+
+
 
         /*=====================Media queries=======================*/
 
@@ -405,6 +444,10 @@
                 display: flex;
             }
 
+            .navbar-menu.active .button-login {
+                display: block;
+            }
+
             .navbar-menu li {
                 height: 56px;
                 margin-right: 0;
@@ -413,10 +456,6 @@
 
         /*=====================Queries for the Section-1=======================*/
         @media screen and (max-width: 840px) {
-            .section-1 {
-                flex-direction: column-reverse;
-            }
-
             .section-1-container {
                 margin-top: 0;
                 margin-right: auto;
@@ -430,10 +469,6 @@
         @media screen and (max-width: 500px) {
             .section-1 {
                 padding-bottom: 50px;
-            }
-
-            .section-1-container {
-                margin-top: 300px;
             }
         }
 
@@ -462,6 +497,7 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+
 </head>
 
 <body>
@@ -472,10 +508,29 @@
                 <li><a href="{{url('/')}}">Inicio</a></li>
                 <li><a href="{{url('/acercade')}}">Acerca de</a></li>
                 <li><a href="{{url('/contacto')}}">Contacto</a></li>
+                @auth
+                <a href="{{ url('/dashboard') }}" class="button-login">Ingresar</a>
+                @else
+                <a href="{{ route('login') }}" class="button-login">Ingresar</a>
+                @endauth
             </ul>
             <div class="navbar-toggle">
-                <img src="./images/icon-hamburger.svg" alt="hamburguer icon" class="navbar-hamburguerIcon" />
-                <img src="./images/icon-close.svg" alt="close icon" class="navbar-closeIcon" />
+                <svg alt="hamburguer icon" class="navbar-hamburguerIcon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #cdd1d7
+                        }
+                    </style>
+                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                </svg>
+                <svg alt="close icon" class="navbar-closeIcon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #cdd1d7
+                        }
+                    </style>
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
             </div>
             @if (Route::has('login'))
             @auth
@@ -496,10 +551,15 @@
             <div class="section-1-container">
                 <h1>Proinfalca - Especialistas en Correas</h1>
                 <p>Con más de 10 años de experiencia en el mercado, el equipo de Proinfalca te ofrece
-                    la mayor variedad en respuestos, especializados en correas.</p>
-                <a href="#" class="button-verproductos">Ver todos nuestros productos</a>
+                    la mayor variedad en correas de todo tipo.</p>
+                @if (Route::has('login'))
+                @auth
+                <a href="{{ url('/dashboard') }}" class="button-verproductos">Ver todos nuestros productos</a>
+                @else
+                <a href="{{ route('login') }}" class="button-verproductos">Ver todos nuestros productos</a>
+                @endauth
+                @endif
             </div>
-            <img src="https://i.ibb.co/Bnk3Ts9/proinfalca.jpg" alt="Proinfalca sede" />
         </section>
 
         <section class="section-2">
@@ -539,11 +599,24 @@
                 </article>
             </div>
         </section>
+
+        <section class="section-3">
+            <h2>Nuestras marcas y Aliados</h2>
+            <div class="section-3-container">
+                <img src="https://www.alfagomma.com/wp-content/uploads/2020/07/ogimage.jpg" alt="Alfagomma">
+                <img src="https://d1gl66oyi6i593.cloudfront.net/wp-content/uploads/2018/07/historia-logo-goodyear.jpg" alt="Goodyear">
+                <img src="https://www.srth.fr/wp-content/uploads/2019/03/logo-parker-300x300-343.jpg" alt="Parker">
+                <img src="https://cdn.cdnlogo.com/logos/d/37/dayco.svg" alt="Dayco">
+                <img src="https://aryoung.com/wp-content/uploads/2018/01/Jason-Industrial-Inc.png" alt="Jason Industrial Inc">
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <img src="https://i.ibb.co/3h5Qrbj/logoproinfalca.png" alt="proinfalca" class="logo" />
         <div class="footer-social">
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+
             <ul>
                 <li>
                     <a href="#" aria-label="facebook">
@@ -585,7 +658,14 @@
         <img class="footer-map" src="https://i.ibb.co/TmH21T5/ubicacion-proinfalca.png" alt="Mapa">
         <p class="footer-rights">© Proinfalca </p>
     </footer>
+    <script>
+        const navbarToggle = document.querySelector(".navbar-toggle");
+        const navbarMenu = document.querySelector(".navbar-menu");
 
+        navbarToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

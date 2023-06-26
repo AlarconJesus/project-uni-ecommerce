@@ -47,6 +47,11 @@
                         {{ __('Ventas') }}
                     </x-nav-link>
                     @endcan
+                    @can('dolar.index')
+                    <x-nav-link href="/dolar">
+                        {{ __('Cambio 💲') }}
+                    </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -226,6 +231,11 @@
                     {{ __('Ventas') }}
                 </x-responsive-nav-link>
                 @endcan
+                @can('dolar.index')
+                <x-responsive-nav-link href="/dolar">
+                    {{ __('Cambio 💲') }}
+                </x-responsive-nav-link>
+                @endcan
 
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -239,7 +249,7 @@
                     @csrf
 
                     <x-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar Sesión') }}
                     </x-responsive-nav-link>
                 </form>
 

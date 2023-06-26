@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre">Nombre *</label>
                                 <input type="text" required name="nombre" class="form-control" required value={{$producto->nombre}}>
                             </div>
                         </div>
@@ -24,21 +24,21 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="descripcion">Descripcion</label>
+                                    <label for="descripcion">Descripcion *</label>
                                     <input type="text" required name="descripcion" class="form-control" value={{$producto->descripcion}}>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="stock">Cantidad en almacen</label>
+                                    <label for="stock">Cantidad en almacen *</label>
                                     <input type="number" name="stock" class="form-control" required value="{{$producto->stock}}">
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="precio">Precio</label>
+                                    <label for="precio">Precio *</label>
                                     <input type="number" required step="any" name="precio" class="form-control" required value={{$producto->precio}}>
                                 </div>
                             </div>
@@ -54,12 +54,12 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
 
                                 @if(sizeof($categorias) == 0)
-                                <label for="id_categoria">Categoría</label>
+                                <label for="id_categoria">Categoría *</label>
                                 <h3>No hay categorias registradas, crea una primero. </h3>
                                 <a href="/categorias" class="btn btn-warning">Ir a Categorías</a>
                                 @else
                                 <div class="form-group">
-                                    <label for="id_categoria">Categoría</label>
+                                    <label for="id_categoria">Categoría *</label>
                                     <div class="form-check">
                                         <select name="id_categoria" id="">
                                             @foreach($categorias as $categoria)

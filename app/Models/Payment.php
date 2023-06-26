@@ -11,7 +11,7 @@ class Payment extends Model
 
     protected $table = "payment";
 
-    protected $fillable = ['nombre', 'fecha', 'moneda', 'metodo_pago', 'monto', 'IVA', 'referencia', 'comentario', 'id_user', 'id_producto'];
+    protected $fillable = ['nombre', 'fecha', 'moneda', 'metodo_pago', 'monto', 'tasa', 'IVA', 'referencia', 'comentario', 'id_user', 'id_producto'];
 
     public function User()
     {

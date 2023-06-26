@@ -11,39 +11,39 @@
             @csrf
 
             <div class="mt-4 mb-4">
-                <x-label for="email" value="{{ __('Correo') }}" />
+                <x-label for="email" value="{{ __('Correo *') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
             <div class="flex mb-4">
                 <div class="w-1/2 p-2">
-                    <x-label for="name" value="{{ __('Nombre') }}" />
+                    <x-label for="name" value="{{ __('Nombre *') }}" />
                     <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                 </div>
                 <div class="w-1/2 p-2">
-                    <x-label for="telefono" value="{{ __('Teléfono') }}" />
+                    <x-label for="telefono" value="{{ __('Teléfono *') }}" />
                     <x-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required autofocus autocomplete="telefono" />
                 </div>
             </div>
 
             <div class="flex mb-4">
                 <div class="w-1/2 p-2">
-                    <x-label for="pregunta_secreta" value="{{ __('Pregunta secreta') }}" />
+                    <x-label for="pregunta_secreta" value="{{ __('Pregunta secreta *') }}" />
                     <x-input id="pregunta_secreta" class="block mt-1" type="text" name="pregunta_secreta" :value="old('pregunta_secreta')" required autofocus autocomplete="pregunta_secreta" />
                 </div>
                 <div class="w-1/2 p-2">
-                    <x-label for="respuesta_secreta" value="{{ __('Respuesta secreta') }}" />
+                    <x-label for="respuesta_secreta" value="{{ __('Respuesta secreta *') }}" />
                     <x-input id="respuesta_secreta" class="block mt-1" type="text" name="respuesta_secreta" :value="old('respuesta_secreta')" required autofocus autocomplete="pregunta_secreta" />
                 </div>
             </div>
 
             <div class="flex mb-4">
                 <div class="w-1/2 p-2">
-                    <x-label for="password" value="{{ __('Contraseña') }}" />
+                    <x-label for="password" value="{{ __('Contraseña *') }}" />
                     <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                 </div>
                 <div class="w-1/2 p-2">
-                    <x-label for="password_confirmation" value="{{ __('Confirmar Contraseña') }}" />
+                    <x-label for="password_confirmation" value="{{ __('Confirmar Contraseña *') }}" />
                     <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                 </div>
             </div>

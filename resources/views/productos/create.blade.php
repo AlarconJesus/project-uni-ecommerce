@@ -15,28 +15,28 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre">Nombre *</label>
                                 <input type="text" name="nombre" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="descripcion">Descripcion</label>
+                                <label for="descripcion">Descripcion *</label>
                                 <input type="text" name="descripcion" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="stock">Cantidad en almacen</label>
+                                <label for="stock">Cantidad en almacen *</label>
                                 <input type="number" name="stock" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="precio">Precio</label>
+                                <label for="precio">Precio *</label>
                                 <input type="number" step="any" name="precio" class="form-control" required>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                             @if(sizeof($categorias) == 0)
-                            <label for="id_categoria">Categoría</label>
+                            <label for="id_categoria">Categoría *</label>
                             <h3>No hay categorias registradas, crea una primero. </h3>
                             <a href="/categorias" class="btn btn-warning">Ir a Categorías</a>
                             @else

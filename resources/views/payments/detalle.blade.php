@@ -57,13 +57,13 @@
                     <div class="row">
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
-                                <label for="nombre">Nombre de la persona que emitió el pago: </label>
+                                <label for="nombre">Nombre de la persona que emitió el pago: *</label>
                                 <input type="text" name="nombre" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
-                                <label for="fecha">Fecha</label>
+                                <label for="fecha">Fecha *</label>
                                 <input type="date" name="fecha" class="form-control" required>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
 
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
-                                <label for="monto">Moneda</label>
+                                <label for="monto">Moneda *</label>
                                 <select name="moneda" id="" required>
                                     <option value="bolivares">
                                         <label class="form-check-label" for="bolivares">
@@ -92,7 +92,7 @@
 
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
-                                <label for="metodo_pago">Método de pago</label>
+                                <label for="metodo_pago">Método de pago *</label>
                                 <select name="metodo_pago" id="" required>
                                     <option value="pagomovil">
                                         <label class="form-check-label" for="pagomovil">
@@ -116,21 +116,21 @@
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
                                 <label for="monto">Monto</label>
-                                <input type="number" required step="any" name="monto" class="form-control" value="{{$producto->precio}}">
+                                <input type="number" required step="any" name="monto" class="form-control disabled" readonly value="{{$producto->precio * $dolarActual->precio}}">
                             </div>
                         </div>
 
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
                                 <label for="">Tasa del día</label>
-                                <input type="number" step="any" name="" class="form-control" required>
+                                <input type="number" name="tasa" class="form-control disabled" readonly required value="{{$dolarActual->precio}}">
                             </div>
                         </div>
 
 
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
-                                <label for="referencia">Número de comprobante</label>
+                                <label for="referencia">Número de comprobante *</label>
                                 <input type="number" step="any" name="referencia" class="form-control" required>
                             </div>
                         </div>

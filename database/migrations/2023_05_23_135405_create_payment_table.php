@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('moneda');
             $table->string('metodo_pago');
             $table->float('monto');
+            $table->float('tasa');
             $table->float('IVA');
             $table->bigInteger('referencia');
             $table->string('comentario')->nullable();
