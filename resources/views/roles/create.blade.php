@@ -33,7 +33,9 @@
                 </div>
                 @endforeach
 
-                {!! Form::submit('Crear rol', ['class' => 'bg-blue-500 btn btn-primary mt-2']) !!}
+                <div style="display: flex;  justify-content: center;">
+                    {!! Form::submit('Crear rol', ['class' => 'bg-blue-500 btn btn-primary mt-10']) !!}
+                </div>
                 {!! Form::close() !!}
             </div>
         </div>

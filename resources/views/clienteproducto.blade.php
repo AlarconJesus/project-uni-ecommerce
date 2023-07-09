@@ -15,13 +15,21 @@
                 margin-bottom: 30px;
             }
 
-            .card-container {
+            /* .card-container {
                 display: flex;
                 flex-wrap: wrap;
-            }
+            } */
 
-            .card {
+            /* .card {
                 margin: 10px;
+            } */
+
+            .card-container {
+                padding: 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 17rem);
+                justify-content: space-between;
+                grid-gap: 10px;
             }
 
             .card-title {
@@ -42,6 +50,12 @@
 
             .categories-container {
                 margin-bottom: 40px;
+            }
+
+            @media screen and (max-width: 576px) {
+                .card-container {
+                    justify-content: center;
+                }
             }
         </style>
     </x-slot>
@@ -65,7 +79,7 @@
                 </form>
             </div>
 
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg card-container">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg card-container p-2">
                 @if ( $productos->isEmpty())
                 <div>
                     <h2 class="h3 m-2">No hemos obtenido productos!</h2>
@@ -75,7 +89,7 @@
                 @endif
 
                 @foreach ($productos as $producto )
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 17rem;">
                     @if ($producto->imagen)
                     <img class="card-img-top" src="{{asset($producto->imagen)}}" alt="{{$producto->nombre}}">
                     @else

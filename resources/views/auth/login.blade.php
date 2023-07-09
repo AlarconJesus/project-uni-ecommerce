@@ -1,4 +1,25 @@
 <x-guest-layout>
+    <script>
+        let captcha = false;
+
+        var verifyCallback = function(response) {
+            captcha = response;
+        };
+
+        var onloadCallback = function() {
+            grecaptcha.render('grecaptcha-container', {
+                'sitekey': '6LdxfZ4mAAAAAEIuM66D62h4p0CfUfSTbHAQcuh2',
+                'callback': verifyCallback
+            });
+        };
+
+        function login() {
+            if (captcha) {
+                document.getElementById('form_login').submit();
+            }
+        }
+    </script>
+
     <x-authentication-card>
         <x-slot name="logo">
             <!-- <x-authentication-card-logo /> -->
@@ -14,21 +35,22 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form id="form_login" method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
                 <x-label for="email" value="{{ __('Correo') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" maxlength="255" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4 mb-4">
                 <x-label for="password" value="{{ __('Contraseña') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-input id="password" maxlength="30" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <!-- Captcha -->
-            <div class="g-recaptcha" data-sitekey="6LdxfZ4mAAAAAEIuM66D62h4p0CfUfSTbHAQcuh2"></div>
+            <!-- <div class="g-recaptcha" data-sitekey="6LdxfZ4mAAAAAEIuM66D62h4p0CfUfSTbHAQcuh2"></div> -->
+            <div id="grecaptcha-container"></div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
@@ -44,29 +66,16 @@
                 </a>
                 @endif
 
-                <x-button class="ml-4">
+                <button type="button" onclick="login()" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4" class="ml-4">
                     {{ __('Ingresar') }}
-                </x-button>
+                </button>
             </div>
         </form>
     </x-authentication-card>
 
-    @push('scripts')
+    <!-- @push('scripts')
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- <script>
-        grecaptcha.ready(function() {
-            document.getElementById('registerForm').addEventListener("submit", function(event) {
-                event.preventDefault();
-                grecaptcha.execute('{{ config('
-                        services.recaptcha.site_key ') }}', {
-                            action: 'register'
-                        })
-                    .then(function(token) {
-                        document.getElementById("recaptcha_token").value = token;
-                        document.getElementById('registerForm').submit();
-                    });
-            });
-        });
-    </script> -->
-    @endpush
+    @endpush -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+    </script>
 </x-guest-layout>

@@ -25,5 +25,6 @@ return [
     */
 
     'timeout' => 1,
+    'redirect' => 'project-uni-ecommerce.test',
 
 ];

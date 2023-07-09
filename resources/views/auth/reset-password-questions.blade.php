@@ -6,7 +6,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Olvidaste tu contraseña? No hay problema. Solo escribe tu dirección de correo y enviaremos un email a tu correo con el link para restablecerla.') }}
+            {{ __('Olvidaste tu contraseña? No hay problema. Solo escribe tu dirección de correo y responde la pregunta secreta para restablecerla.') }}
         </div>
 
         @if (session('status'))
@@ -17,8 +17,9 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.email') }}">
+        <form method="POST" action="{{ route('psreset2') }}">
             @csrf
+
 
             <div class="block">
                 <x-label for="email" value="{{ __('Email') }}" />
@@ -27,10 +28,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-button>
-                    {{ __('Enviar el link al correo') }}
-                </x-button>
-                <x-button>
-                    <a href="/preguntas_secretas">Validar con pregunta secreta</a>
+                    {{ __('Siguiente') }}
                 </x-button>
             </div>
         </form>

@@ -16,14 +16,14 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="nombre">Nombre *</label>
-                                <input type="text" name="nombre" class="form-control" required>
+                                <input type="text" maxlength="255" name="nombre" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="descripcion">Descripcion *</label>
-                                <input type="text" name="descripcion" class="form-control" required>
+                                <input type="text" maxlength="255" name="descripcion" class="form-control" required>
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="imagen">Imagen</label>
-                                <input type="file" name="imagen" class="form-control" required>
+                                <input type="file" name="imagen" class="form-control">
                             </div>
                         </div>
 
@@ -56,8 +56,8 @@
                             @else
                             <div class="form-group">
                                 <label for="id_categoria">Categoría</label>
-                                <div class="form-check">
-                                    <select name="id_categoria" id="" required>
+                                <div class="form-group">
+                                    <select name="id_categoria" id="" style="width: 100%;" required>
                                         @foreach($categorias as $categoria)
                                         <option value="{{$categoria->id}}">
                                             <label class="form-check-label" for="{{$categoria->id}}">
@@ -69,10 +69,11 @@
                                 </div>
                             </div>
                             @endif
-                            <button type="submit" class="bg-blue-500 btn btn-primary mt-2">Guardar</button>
 
                         </div>
-
+                        <div style="display: flex;  justify-content: center;">
+                            <button type="submit" class="bg-blue-500 btn btn-primary mt-10" style="width: 80px;">Guardar</button>
+                        </div>
                     </div>
                 </form>
             </div>

@@ -22,6 +22,18 @@
             .card-img-top {
                 max-width: 200px;
             }
+
+            div div div button.button-guardar {
+                position: relative;
+                right: 60px;
+            }
+
+            @media screen and (max-width: 576px) {
+                div div div button.button-guardar {
+                    position: relative;
+                    right: 0px;
+                }
+            }
         </style>
     </x-slot>
 
@@ -50,23 +62,23 @@
 
                 </div>
 
-                <form action="{{ route('payment.update', $venta) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('payment.update', $venta) }}" method="POST" enctype="multipart/form-data" class="mt-3">
                     @csrf
                     @method('PUT')
                     <div class="row">
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="nombre">Nombre de la persona que emitió el pago: </label>
                                 <input type="text" name="nombre" class="form-control" required value='{{$venta->comprador}}' disabled>
                             </div>
                         </div>
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="nombre">Correo Electrónico: </label>
                                 <input type="text" name="nombre" class="form-control" required value='{{$venta->compradorEmail}}' disabled>
                             </div>
                         </div>
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="fecha">Fecha</label>
                                 <input type="date" name="fecha" class="form-control" required value='{{$venta->fecha}}' disabled>
@@ -77,28 +89,28 @@
                         <input type="hidden" name="IVA" value="16">
                         <input type="hidden" name="id_producto" value="{{$venta->producto->id}}">
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="monto">Moneda</label>
                                 <input type="text" name="moneda" class="form-control" required value='{{$venta->moneda}}' disabled>
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="metodo_pago">Método de pago</label>
                                 <input type="text" name="metodo_pago" class="form-control" required value='{{$venta->metodo_pago}}' disabled />
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="monto">Monto</label>
                                 <input type="number" required step="any" name="monto" class="form-control" value="{{$venta->monto}}" disabled>
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="">Tasa del día</label>
                                 <input type="number" step="any" name="tasa" class="form-control" value="{{$venta->tasa}}" required disabled>
@@ -106,35 +118,61 @@
                         </div>
 
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="referencia">Número de comprobante</label>
                                 <input type="number" name="referencia" class="form-control" required value='{{$venta->referencia}}' disabled>
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="comentario">Comentario</label>
                                 <input type="text" name="comentario" class="form-control" required value='{{$venta->comentario}}' disabled>
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
-                            <div class="form-group">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <!-- <div class="form-group">
                                 <label>Verificado</label>
                                 @if($venta->verificado)
                                 <p class="form-control">Pago verificado ✅</p>
                                 @else
                                 <p class="form-control">Sin verificar ❌</p>
                                 @endif
+                            </div> -->
+
+
+                            <div class="form-group">
+                                <label for="verificado">Verificado</label>
+                                <div class="form-group">
+                                    <select name="verificado" id="verificado" style="width: 100%;" required>
+                                        <option value="Sin verificar">
+                                            <label class="form-check-label" for="Sin verificar">
+                                                Sin verificar ❌
+                                            </label>
+                                        </option>
+                                        <option value="Verificado">
+                                            <label class="form-check-label" for="Verificado">
+                                                Verificado ✅
+                                            </label>
+                                        </option>
+                                        <option value="Rechazado">
+                                            <label class="form-check-label" for="Rechazado">
+                                                Rechazado ❌
+                                            </label>
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <button type="submit" class="bg-green-500 btn btn-success mt-10">Verificar pago</button>
+                            <!-- <button type="submit" class="bg-green-500 btn btn-success mt-10">Verificar pago</button> -->
 
                         </div>
 
-                        <input type="hidden" name="verificado" value="1">
+                        <div style="display: flex;  justify-content: center;">
+                            <button type="submit" class="bg-green-500 btn btn-success mt-10" style="width: 80px;" class="button-guardar">Guardar</button>
+                        </div>
 
                     </div>
                 </form>

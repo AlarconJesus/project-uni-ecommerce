@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
             'respuesta_secreta' => bcrypt('toyota')
         ])->assignRole('Admin');
 
-        User::factory(9)->create();
+        User::factory(19)->create();
     }
 }

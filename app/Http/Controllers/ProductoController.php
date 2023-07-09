@@ -26,7 +26,6 @@ class ProductoController extends Controller
     {
         $productos = Producto::All();
 
-        // dd('Hasta aqui estoy funcionando');
         return view('productos.index', compact('productos'));
     }
 
@@ -140,7 +139,7 @@ class ProductoController extends Controller
             $productos = $productos->where('nombre', 'LIKE', '%' . $request->busqueda . '%');
         }
 
-        $productos = $productos->paginate(2);
+        $productos = $productos->paginate(12);
         $busqueda = $request->buqueda;
 
         return view('clienteproducto', compact('productos', 'categorias', 'busqueda'));

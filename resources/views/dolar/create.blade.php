@@ -13,21 +13,20 @@
                 <form action="{{ route('dolar.store') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label for="precio">Precio</label>
-                                <input type="text" name="precio" class="form-control" required>
+                                <label for="precio">Precio *</label>
+                                <input type="number" step="0.01" min="0" name="precio" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
-
-                            <div class="col-xs-10 col-sm-10 col-md-10">
-                                <div class="form-group">
-                                    <label for="fecha">Fecha y Hora</label>
-                                    <input type="datetime-local" name="fecha" class="form-control" required>
-                                </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha y Hora *</label>
+                                <input type="datetime-local" name="fecha" class="form-control" required>
                             </div>
+                        </div>
 
+                        <div style="display: flex;  justify-content: center;">
                             <button type="submit" class="bg-blue-500 btn btn-primary mt-10">Guardar</button>
                         </div>
                     </div>

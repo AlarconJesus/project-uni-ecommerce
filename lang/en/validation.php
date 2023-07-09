@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
+    'accepted' => 'El :attribute debe ser aceptado.',
     'accepted_if' => 'The :attribute must be accepted when :other is :value.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
@@ -98,11 +98,11 @@ return [
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'file' => 'El campo :attribute debe tener :min kilobytes.',
+        'numeric' => 'El campo :attribute debe tener :min.',
+        'string' => 'El campo :attribute debe tener :min characters.',
     ],
-    'min_digits' => 'The :attribute must have at least :min digits.',
+    'min_digits' => 'La :attribute debe tener al menos :min dígitos.',
     'missing' => 'The :attribute field must be missing.',
     'missing_if' => 'The :attribute field must be missing when :other is :value.',
     'missing_unless' => 'The :attribute field must be missing unless :other is :value.',
@@ -138,8 +138,8 @@ return [
     'size' => [
         'array' => 'The :attribute must contain :size items.',
         'file' => 'The :attribute must be :size kilobytes.',
-        'numeric' => 'The :attribute must be :size.',
-        'string' => 'The :attribute must be :size characters.',
+        'numeric' => 'El campo :attribute debe poseer :size.',
+        'string' => 'El campo :attribute debe poseer :size caracteres.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',

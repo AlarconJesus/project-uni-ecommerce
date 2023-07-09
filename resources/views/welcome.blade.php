@@ -569,7 +569,13 @@
                     <img src="https://noticias.coches.com/wp-content/uploads/2019/03/Correa-de-Distribuci%C3%B3n-2.jpg" alt="Correa distribucion" />
                     <div class="section-2-cardContainer-card-content">
                         <p class="card-precio">10.99$</p>
-                        <h3><a href="#">Correa de distribucion</a></h3>
+                        @if (Route::has('login'))
+                        @auth
+                        <h3><a href="{{url('/productocliente')}}">Correa de distribucion</a></h3>
+                        @else
+                        <h3><a href="{{route('login')}}">Correa de distribucion</a></h3>
+                        @endauth
+                        @endif
                         <p>Correas marca - de la mejor calidad …</p>
                     </div>
                 </article>
@@ -577,7 +583,13 @@
                     <img src="https://repuestoenlinea.com/wp-content/uploads/2021/05/Correa-De-Aire-Acondicionado-Hyundai-Getz-AAt-22260.jpg" alt="Producto" />
                     <div class="section-2-cardContainer-card-content">
                         <p class="card-precio">13.99$</p>
-                        <h3><a href="#">Correa del aire acondicionado</a></h3>
+                        @if (Route::has('login'))
+                        @auth
+                        <h3><a href="{{url('/productocliente')}}">Correa del aire acondicionado</a></h3>
+                        @else
+                        <h3><a href="{{route('login')}}">Correa del aire acondicionado</a></h3>
+                        @endauth
+                        @endif
                         <p>Correas marca - de la mejor calidad …</p>
                     </div>
                 </article>
@@ -585,7 +597,13 @@
                     <img src="https://http2.mlstatic.com/D_NQ_NP_939643-MLV45836962366_052021-V.jpg" alt="Producto" />
                     <div class="section-2-cardContainer-card-content">
                         <p class="card-precio">8.00$</p>
-                        <h3><a href="#">Correa motor</a></h3>
+                        @if (Route::has('login'))
+                        @auth
+                        <h3><a href="{{url('/productocliente')}}">Correa motor</a></h3>
+                        @else
+                        <h3><a href="{{route('login')}}">Correa motor</a></h3>
+                        @endauth
+                        @endif
                         <p>Correas marca - de la mejor calidad …</p>
                     </div>
                 </article>
@@ -593,7 +611,13 @@
                     <img src="https://fullrepuesto.com/wp-content/uploads/2021/11/Correa-de-tiempo-300x225.jpg" alt="Producto" />
                     <div class="section-2-cardContainer-card-content">
                         <p class="card-precio">6.50$</p>
-                        <h3><a href="#">Correa de distribucion</a></h3>
+                        @if (Route::has('login'))
+                        @auth
+                        <h3><a href="{{url('/productocliente')}}">Correa de distribucion</a></h3>
+                        @else
+                        <h3><a href="{{route('login')}}">Correa de distribucion</a></h3>
+                        @endauth
+                        @endif
                         <p>Correas marca - de la mejor calidad …</p>
                     </div>
                 </article>

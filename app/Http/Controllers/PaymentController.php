@@ -79,6 +79,7 @@ class PaymentController extends Controller
 
             if ($comprador) {
                 $venta->comprador = $comprador->name;
+                $venta->compradorTelefono = $comprador->telefono;
                 $venta->compradorEmail = $comprador->email;
             }
         }

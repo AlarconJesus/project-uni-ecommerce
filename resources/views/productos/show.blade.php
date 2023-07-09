@@ -14,7 +14,7 @@
                 width: 100%;
                 display: flex;
                 flex-direction: row;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 justify-content: space-between;
             }
 
@@ -30,7 +30,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h2 class="section-title">Detalles del Producto</h2>
 
@@ -42,16 +42,20 @@
                     @endif
                     <div class="card-body">
                         <h5 class="card-title h2">{{$producto->nombre}}</h5>
-                        @if($producto->stock == 0)
-                        <h5 class="card-stock mt-2">Agotado temporalmente...</h5>
-                        @elseif($producto->stock > 0)
+                        @if($producto->stock > 0)
                         <h5 class="card-stock mt-2">Disponible.</h5>
+                        @else
+                        <h5 class="card-stock mt-2 text-danger">Agotado temporalmente...</h5>
                         @endif
 
                         <p class="card-text card-descripcion mt-4 mb-4">{{$producto->descripcion}}</p>
 
                         <p class="card-text h3">{{$producto->precio}} $</p>
-                        <a href="/contactanos/{{$producto->id}}" class="btn btn-primary">Confirmar Comprar</a>
+                        @if($producto->stock > 0)
+                        <a href="/contactanos/{{$producto->id}}" class="btn btn-primary my-8">Confirmar Comprar</a>
+                        @else
+                        <a href="/productocliente" class="btn btn-warning my-8">Ir a productos</a>
+                        @endif
                     </div>
 
                 </div>

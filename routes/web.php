@@ -41,7 +41,9 @@ Route::middleware([
 
 Route::resource('productos', ProductoController::class)->names('productos');
 Route::resource('categorias', CategoriaController::class)->except('show');
-Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('users');
+Route::resource('users', UserController::class)->only(['index', 'edit', 'update', 'destroy'])->names('users');
+Route::get('users/eliminar/{user}', [UserController::class, 'eliminarUsuario'])->name('users.eliminarUsuario');
+Route::put('users/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::resource('roles', RoleController::class)->names('roles');
 Route::resource('payment', PaymentController::class)->only(['store', 'update'])->names('payment'); // en observacion
 Route::get('payment/{id}', [PaymentController::class, 'detalle']);
@@ -51,7 +53,14 @@ Route::get('contactanos/{id}', [PaymentController::class, 'contactanos'])->name(
 Route::get('ventas/detalle/{id}', [PaymentController::class, 'detalleventa']);
 Route::resource('dolar', DolarController::class)->except('show')->names('dolar');
 
-Route::get('users/{$user}/ban', [UserController::class, 'ban'])->name('users.ban');
+Route::get('preguntas_secretas', [UserController::class, 'recuperaPS']);
+Route::post('preguntas_secretas', [UserController::class, 'recuperaPS2'])->name('psreset2');
+
+Route::post('preguntas_secretas3', [UserController::class, 'recuperaPS3'])->name('psreset3');
+Route::post('preguntas_secretas4', [UserController::class, 'recuperaPS4'])->name('psreset4');
+Route::post('forgot-password-2', [UserController::class, 'resetPassword2'])->name('resetpassword2');
+
+Route::get('users/{user}/ban', [UserController::class, 'ban'])->name('users.ban');
 Route::patch('users/{$user}/updateBan', [UserController::class, 'updateBan'])->name('users.updateBan');
 
 //url para la vista que tendria el usuario de los productos

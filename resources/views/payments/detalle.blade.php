@@ -55,13 +55,13 @@
                 <form action="{{ route('payment.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="nombre">Nombre de la persona que emitió el pago: *</label>
-                                <input type="text" name="nombre" class="form-control" required>
+                                <input type="text" maxlength="60" name="nombre" class="form-control" required>
                             </div>
                         </div>
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="fecha">Fecha *</label>
                                 <input type="date" name="fecha" class="form-control" required>
@@ -72,10 +72,10 @@
                         <input type="hidden" name="IVA" value="16">
                         <input type="hidden" name="id_producto" value="{{$producto->id}}">
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="monto">Moneda *</label>
-                                <select name="moneda" id="" required>
+                                <select name="moneda" id="" required style="width: 100%;">
                                     <option value="bolivares">
                                         <label class="form-check-label" for="bolivares">
                                             Bolívares
@@ -90,10 +90,10 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="metodo_pago">Método de pago *</label>
-                                <select name="metodo_pago" id="" required>
+                                <select name="metodo_pago" id="" required style="width: 100%;">
                                     <option value="pagomovil">
                                         <label class="form-check-label" for="pagomovil">
                                             Pago movil
@@ -113,14 +113,14 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="monto">Monto</label>
                                 <input type="number" required step="any" name="monto" class="form-control disabled" readonly value="{{$producto->precio * $dolarActual->precio}}">
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="">Tasa del día</label>
                                 <input type="number" name="tasa" class="form-control disabled" readonly required value="{{$dolarActual->precio}}">
@@ -128,28 +128,23 @@
                         </div>
 
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="referencia">Número de comprobante *</label>
-                                <input type="number" step="any" name="referencia" class="form-control" required>
+                                <input type="number" maxlength="60" step="any" name="referencia" class="form-control" required>
                             </div>
                         </div>
 
-                        <div class="col-xs-5 col-sm-5 col-md-5">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="comentario">Comentario</label>
-                                <input type="string" step="any" name="comentario" class="form-control" required>
+                                <input type="text" name="comentario" maxlength="30" class="form-control" required>
                             </div>
-                            <button type="submit" class="bg-green-500 btn btn-success mt-10">Confirmar pago</button>
                         </div>
 
-                        <!-- <div class="col-xs-12 col-sm-12 col-md-12">
-              <div class="form-group">
-                <label for="imagen">Imagen</label>
-                <input type="file" name="imagen" class="form-control">
-              </div>
-            </div> -->
-
+                        <div style="display: flex;  justify-content: center;">
+                            <button type="submit" class="bg-green-500 btn btn-success mt-10" style="width: 80px;" class="button-guardar">Guardar</button>
+                        </div>
                     </div>
                 </form>
             </div>

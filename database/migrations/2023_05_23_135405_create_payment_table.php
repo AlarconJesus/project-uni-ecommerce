@@ -24,7 +24,7 @@ return new class extends Migration
             $table->float('IVA');
             $table->bigInteger('referencia');
             $table->string('comentario')->nullable();
-            $table->boolean('verificado')->default(false);
+            $table->string('verificado')->default('Sin verificar');
             $table->foreignId('id_user')
                 ->nullable()
                 ->constrained('users')

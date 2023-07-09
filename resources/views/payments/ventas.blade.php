@@ -41,6 +41,7 @@
                         <th>ID Pago</th>
                         <th>Nombre Comprador</th>
                         <th>Email</th>
+                        <th>Teléfono</th>
                         <th>Fecha</th>
                         <th>Producto</th>
                         <th>Precio</th>
@@ -55,9 +56,11 @@
                             <td>{{ $venta->id }}</td>
                             @if($venta->comprador)
                             <td>{{ $venta->comprador}}</td>
-                            <td>{{ $venta->compradorEmail}}</td>
+                            <td style="word-break: break-all;">{{ $venta->compradorEmail}}</td>
+                            <td>{{ $venta->compradorTelefono}}</td>
                             @else
                             <td>-</td>
+                            <!-- <td>-</td> -->
                             <td>-</td>
                             @endif
 
@@ -76,10 +79,12 @@
                             <td>-</td>
                             @endif
                             <td>
-                                @if(! $venta->verificado)
+                                @if($venta->verificado == 'Sin verificar')
                                 <p>Sin verificar ❌</p>
-                                @else
+                                @elseif($venta->verificado == 'Verificado')
                                 <p>Verificado ✅</p>
+                                @else
+                                <p>Rechazado ❌</p>
                                 @endif
                             </td>
                             <td>

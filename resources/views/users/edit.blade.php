@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <h2>Listado de Roles</h2>
+                    <h5 class="h5">Listado de Roles</h5>
                     {!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'put']) !!}
                     <div class="form-check">
                         @foreach($roles as $role)
@@ -49,8 +49,9 @@
                         </div>
                         @endforeach
                     </div>
-
-                    {!! Form::submit('Asignar rol', ['class' => 'bg-blue-500 btn btn-primary mt-2']) !!}
+                    <div style="display: flex;  justify-content: center;">
+                        {!! Form::submit('Asignar rol', ['class' => 'bg-blue-500 btn btn-primary mt-10']) !!}
+                    </div>
                     {!! Form::close() !!}
                     <!-- Esto se realiza asi usando html collective -->
                 </div>

@@ -41,8 +41,9 @@
                 <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
                     <thead style="background-color:#6777ef">
                         <th style="display: none;">ID</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
+                        <th style="max-width: 300px;">Nombre</th>
+                        <th style="max-width: 300px;">Descripcion</th>
+                        <th>Stock</th>
                         <th>Precio</th>
                         <th>Categoría</th>
                         <th>Imagen</th>
@@ -54,6 +55,7 @@
                             <td style="display: none;">{{ $producto->id }}</td>
                             <td>{{ $producto->nombre}}</td>
                             <td>{{ $producto->descripcion }}</td>
+                            <td>{{ $producto->stock }}</td>
                             <td>{{ $producto->precio }}</td>
                             @if($producto->categorias)
                             <td>{{ $producto->categorias->nombre }}</td>

@@ -193,6 +193,7 @@
 
         /*=====================Section-2=======================*/
         .section-2 {
+            min-height: 550px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
@@ -212,56 +213,9 @@
             justify-content: space-between;
         }
 
-        .section-2-cardContainer-card {
-            max-width: 260px;
-            margin-right: 30px;
-            background-color: var(--white);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .section-2-cardContainer-card img {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 25px;
-            object-fit: cover;
-        }
-
-        .section-2-cardContainer-card-content {
-            padding: 0 25px 25px 25px;
-        }
-
-        .section-2-cardContainer-card-content address {
-            margin-bottom: 15px;
-            font-size: 10px;
-            font-style: normal;
-            color: var(--grayish-blue);
-        }
-
-        .section-2-cardContainer-card-content a {
-            color: var(--dark-blue);
-            text-decoration: none;
-        }
-
-        .section-2-cardContainer-card-content h3 {
-            margin-bottom: 8px;
-            font-size: 18px;
-            font-weight: 400;
-        }
-
-        .section-2-cardContainer-card-content a:hover {
-            color: var(--lime-green);
-            opacity: 0.5;
-        }
-
-        .section-2-cardContainer-card-content p {
-            font-size: 14px;
-        }
-
-        p.card-precio {
-            font-size: 26px;
-            color: #093064;
-            margin-bottom: 10px;
+        .card-acercade {
+            padding: 10px;
+            margin: 10px;
         }
 
         /*=====================Footer=======================*/
@@ -329,6 +283,17 @@
             vertical-align: bottom;
         }
 
+        .section-2-uptag {
+            opacity: 0.6;
+        }
+
+        .section-2-uptag img {
+            width: 100px;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
         /*=====================Media queries=======================*/
 
         /*=====================Mainly queries=======================*/
@@ -340,6 +305,8 @@
             .section-1 img {
                 margin-left: 0px;
             }
+
+
         }
 
         @media screen and (max-width: 1000px) {
@@ -347,6 +314,8 @@
                 min-height: 650px;
                 padding: 0 6%;
             }
+
+
 
             .section-2 {
                 padding-top: 90px;
@@ -361,6 +330,10 @@
             .section-2-cardContainer-card {
                 margin: 0 25px 25px 25px;
             }
+
+            .section-2-uptag img {
+                display: none;
+            }
         }
 
         /*=====================Queries for the Navbar=======================*/
@@ -368,6 +341,7 @@
             .navbar .button-login {
                 display: none;
             }
+
         }
 
         @media screen and (max-width: 676px) {
@@ -434,10 +408,6 @@
             .section-1 {
                 padding-bottom: 50px;
             }
-
-            .section-1-container {
-                margin-top: 300px;
-            }
         }
 
         /*=================== Media queries del footer ================= */
@@ -465,24 +435,7 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
-    <style>
-        @media screen and (max-width: 1000px) {
-            .section-1 img {
-                display: none;
-            }
-        }
 
-        @media screen and (max-width: 800px) {
-            .section-1 img {
-                display: block;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -572,6 +525,7 @@
                     </p>
                 </div>
             </div>
+            <p class="section-2-uptag">Este sistema fue diseñado por un equipo de la UPFTAG <img src="https://i.ibb.co/L6BZd5V/logo-upftag.png" alt="UPFTAG"></p>
         </section>
     </main>
 
