@@ -7,6 +7,7 @@ use App\Models\Producto;
 use App\Models\User;
 use App\Models\Dolar;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use PDO;
 
 class PaymentController extends Controller
@@ -113,5 +114,33 @@ class PaymentController extends Controller
         $payment->save();
 
         return redirect()->route('ventas');
+    }
+
+    public function download()
+    {
+        $ventas = Payment::All()->sortBy('fecha');
+        // TODO: Hacer que las ventas vengan ordenadas por sin verificar y por fecha mas reciente
+        foreach ($ventas as $venta) {
+            $producto = Producto::find($venta->id_producto);
+            $comprador = User::find($venta->id_user);
+
+            if ($producto) {
+                $venta->producto = $producto;
+            }
+
+            if ($comprador) {
+                $venta->comprador = $comprador->name;
+                $venta->compradorTelefono = $comprador->telefono;
+                $venta->compradorEmail = $comprador->email;
+            }
+        }
+
+
+
+        $data = 'Datos ...';
+
+        return PdF::loadView('payments.reporte',  compact('ventas'))
+            ->setPaper('a4', 'landscape')
+            ->stream('reporte.pdf');
     }
 }

@@ -63,5 +63,7 @@ Route::post('forgot-password-2', [UserController::class, 'resetPassword2'])->nam
 Route::get('users/{user}/ban', [UserController::class, 'ban'])->name('users.ban');
 Route::patch('users/{$user}/updateBan', [UserController::class, 'updateBan'])->name('users.updateBan');
 
+Route::get('download', [PaymentController::class, 'download']);
+
 //url para la vista que tendria el usuario de los productos
 Route::get('/productocliente', [ProductoController::class, 'getProductocliente'])->name('getProductoCliente');
