@@ -48,6 +48,13 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'descripcion' => 'required|max:255',
+            'stock' => 'required',
+            'precio' => 'required',
+        ]);
+
         $producto = new Producto();
 
         $producto->nombre = $request->nombre;
@@ -60,7 +67,7 @@ class ProductoController extends Controller
         //Almacenar la imagen
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
-            $nombreimagen = Str::slug($request->nombre) . "." . $imagen->guessExtension();
+            $nombreimagen = Str::slug($request->nombre) . time() . "." . $imagen->guessExtension();
             $ruta = public_path('img/post');
             $imagen->move($ruta, $nombreimagen);
             $producto->imagen = 'img/post/' .  $nombreimagen;
@@ -105,7 +112,29 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        $producto->update($request->all());
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'descripcion' => 'required|max:255',
+            'stock' => 'required',
+            'precio' => 'required',
+        ]);
+
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        $producto->precio = $request->precio;
+        $producto->stock = $request->stock;
+        $producto->id_categoria = $request->id_categoria;
+
+        // todo ver funcionalidad
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreimagen = Str::slug($request->nombre) . time() . "." . $imagen->guessExtension();
+            $ruta = public_path('img/post');
+            $imagen->move($ruta, $nombreimagen);
+            $producto->imagen = 'img/post/' .  $nombreimagen;
+        }
+
+        $producto->save();
 
         return redirect()->route('productos.index');
     }
@@ -144,9 +173,4 @@ class ProductoController extends Controller
 
         return view('clienteproducto', compact('productos', 'categorias', 'busqueda'));
     }
-
-    // TODO: Trabajar aqui
-    // if (auth()->user()->hasRole('Admin')) {
-    // }
-
 }

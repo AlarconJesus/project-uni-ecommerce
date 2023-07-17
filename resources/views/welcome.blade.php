@@ -566,59 +566,59 @@
             <h2>Lista de Productos</h2>
             <div class="section-2-cardContainer">
                 <article class="section-2-cardContainer-card">
-                    <img src="https://noticias.coches.com/wp-content/uploads/2019/03/Correa-de-Distribuci%C3%B3n-2.jpg" alt="Correa distribucion" />
+                    <img src="https://www.cauchosexpress.com/1798-large_default/correa-universal-en-v-15450.jpg" alt="Correa distribucion" />
                     <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">10.99$</p>
+                        <p class="card-precio">10.00$</p>
                         @if (Route::has('login'))
                         @auth
-                        <h3><a href="{{url('/productocliente')}}">Correa de distribucion</a></h3>
+                        <h3><a href="{{url('/productocliente')}}">Correa Número 15450 descripción 15450 correa en V automotriz</a></h3>
                         @else
-                        <h3><a href="{{route('login')}}">Correa de distribucion</a></h3>
+                        <h3><a href="{{route('login')}}">Correa Número 15450 descripción 15450 correa en V automotriz</a></h3>
                         @endauth
                         @endif
-                        <p>Correas marca - de la mejor calidad …</p>
+                        <p>Correas de la mejor calidad …</p>
+                    </div>
+                </article>
+                <article class="section-2-cardContainer-card">
+                    <img src="https://www.cauchosexpress.com/1798-large_default/correa-universal-en-v-15450.jpg" alt="Producto" />
+                    <div class="section-2-cardContainer-card-content">
+                        <p class="card-precio">10.00$</p>
+                        @if (Route::has('login'))
+                        @auth
+                        <h3><a href="{{url('/productocliente')}}">Correa Número 13450 descripción 13450 correa en V automotriz</a></h3>
+                        @else
+                        <h3><a href="{{route('login')}}">Correa Número 13450 descripción 13450 correa en V automotriz</a></h3>
+                        @endauth
+                        @endif
+                        <p>Correas de la mejor calidad …</p>
                     </div>
                 </article>
                 <article class="section-2-cardContainer-card">
                     <img src="https://repuestoenlinea.com/wp-content/uploads/2021/05/Correa-De-Aire-Acondicionado-Hyundai-Getz-AAt-22260.jpg" alt="Producto" />
                     <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">13.99$</p>
+                        <p class="card-precio">6.17$</p>
                         @if (Route::has('login'))
                         @auth
-                        <h3><a href="{{url('/productocliente')}}">Correa del aire acondicionado</a></h3>
+                        <h3><a href="{{url('/productocliente')}}">Correa Número 3pk495 descripción 3pk495 correa multicanal</a></h3>
                         @else
-                        <h3><a href="{{route('login')}}">Correa del aire acondicionado</a></h3>
+                        <h3><a href="{{route('login')}}">Correa Número 3pk495 descripción 3pk495 correa multicanal</a></h3>
                         @endauth
                         @endif
-                        <p>Correas marca - de la mejor calidad …</p>
+                        <p>Correas de la mejor calidad …</p>
                     </div>
                 </article>
                 <article class="section-2-cardContainer-card">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_939643-MLV45836962366_052021-V.jpg" alt="Producto" />
+                    <img src="https://repuestoenlinea.com/wp-content/uploads/2021/05/Correa-De-Aire-Acondicionado-Hyundai-Getz-AAt-22260.jpg" alt="Producto" />
                     <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">8.00$</p>
+                        <p class="card-precio">27.10$</p>
                         @if (Route::has('login'))
                         @auth
-                        <h3><a href="{{url('/productocliente')}}">Correa motor</a></h3>
+                        <h3><a href="{{url('/productocliente')}}">Correa Número 5pk1750 descripción 5pk1750 correa multicanal</a></h3>
                         @else
-                        <h3><a href="{{route('login')}}">Correa motor</a></h3>
+                        <h3><a href="{{route('login')}}">Correa Número 5pk1750 descripción 5pk1750 correa multicanal</a></h3>
                         @endauth
                         @endif
-                        <p>Correas marca - de la mejor calidad …</p>
-                    </div>
-                </article>
-                <article class="section-2-cardContainer-card">
-                    <img src="https://fullrepuesto.com/wp-content/uploads/2021/11/Correa-de-tiempo-300x225.jpg" alt="Producto" />
-                    <div class="section-2-cardContainer-card-content">
-                        <p class="card-precio">6.50$</p>
-                        @if (Route::has('login'))
-                        @auth
-                        <h3><a href="{{url('/productocliente')}}">Correa de distribucion</a></h3>
-                        @else
-                        <h3><a href="{{route('login')}}">Correa de distribucion</a></h3>
-                        @endauth
-                        @endif
-                        <p>Correas marca - de la mejor calidad …</p>
+                        <p>Correas de la mejor calidad …</p>
                     </div>
                 </article>
             </div>

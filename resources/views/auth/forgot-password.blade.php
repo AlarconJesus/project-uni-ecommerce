@@ -29,10 +29,10 @@
                 <x-button>
                     {{ __('Enviar el link al correo') }}
                 </x-button>
-                <x-button>
-                    <a href="/preguntas_secretas">Validar con pregunta secreta</a>
-                </x-button>
             </div>
         </form>
+        <a class="underline mt-10 text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/preguntas_secretas">
+            {{ __('Validar con Pregunta secreta') }}
+        </a>
     </x-authentication-card>
 </x-guest-layout>

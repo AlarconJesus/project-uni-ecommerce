@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Dolar;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 use PDO;
 
 class PaymentController extends Controller
@@ -17,6 +18,7 @@ class PaymentController extends Controller
         $this->middleware('can:ventas')->only('ventas');
         $this->middleware('can:ventas')->only('detalleventa');
         $this->middleware('can:ventas')->only('update');
+        $this->middleware('can:reporte')->only('download');
     }
     public function detalle($id)
     {
@@ -30,6 +32,19 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:60',
+            'fecha' => 'required',
+            'metodo_pago' => 'required',
+            'moneda' => 'required',
+            'monto' => 'required',
+            'tasa' => 'required',
+            'IVA' => 'required',
+            'referencia' => 'required|max:30',
+            'id_user' => 'required',
+            'id_producto' => 'required',
+        ]);
+
         $payment = new Payment();
 
         $payment->nombre = $request->nombre;
@@ -80,6 +95,7 @@ class PaymentController extends Controller
 
             if ($comprador) {
                 $venta->comprador = $comprador->name;
+                $venta->compradorCedula = $comprador->cedula;
                 $venta->compradorTelefono = $comprador->telefono;
                 $venta->compradorEmail = $comprador->email;
             }
@@ -116,10 +132,25 @@ class PaymentController extends Controller
         return redirect()->route('ventas');
     }
 
-    public function download()
+    public function download(Request $request)
     {
-        $ventas = Payment::All()->sortBy('fecha');
-        // TODO: Hacer que las ventas vengan ordenadas por sin verificar y por fecha mas reciente
+        $ventas = Payment::All('*');
+
+        if ($request->has('fecha_dia')) {
+            $fecha = $request->fecha_dia;
+
+            $ventas = $ventas->where('fecha', '=', $request->fecha_dia);
+        }
+        if ($request->has('fecha_mes')) {
+            $fecha = $request->fecha_mes;
+            $fechaComoEntero = strtotime($fecha);
+            $anio = date("Y", $fechaComoEntero);
+            $mes = date("m", $fechaComoEntero);
+
+            $ventas = Payment::whereMonth('fecha', $mes)->whereYear('fecha', $anio)->get();
+        }
+
+
         foreach ($ventas as $venta) {
             $producto = Producto::find($venta->id_producto);
             $comprador = User::find($venta->id_user);
@@ -130,17 +161,12 @@ class PaymentController extends Controller
 
             if ($comprador) {
                 $venta->comprador = $comprador->name;
+                $venta->compradorCedula = $comprador->cedula;
                 $venta->compradorTelefono = $comprador->telefono;
                 $venta->compradorEmail = $comprador->email;
             }
         }
 
-
-
-        $data = 'Datos ...';
-
-        return PdF::loadView('payments.reporte',  compact('ventas'))
-            ->setPaper('a4', 'landscape')
-            ->stream('reporte.pdf');
+        return PdF::loadView('payments.reporte',  compact('ventas', 'fecha'))->setPaper('a4', 'landscape')->stream('reporte.pdf');
     }
 }

@@ -18,6 +18,8 @@ class UserController extends Controller
     {
         $this->middleware('can:users.index')->only('index');
         $this->middleware('can:users.edit')->only('edit', 'update');
+        $this->middleware('can:users.destroy')->only('eliminarUsuario', 'destroy');
+        $this->middleware('can:users.ban')->only('ban', 'updateBan');
     }
     /**
      * Display a listing of the resource.
@@ -37,7 +39,7 @@ class UserController extends Controller
         } else {
             $user->ban();
         }
-        // return view('users.ban', compact('user'));
+
         $users = User::all();
 
         return redirect()->route('users.index', compact('users'));
@@ -77,8 +79,6 @@ class UserController extends Controller
     {
 
         $user = User::find($id);
-        // dd($user->hasRole('Admin'));
-        // $cuenta_administrador = false;
         return view('users.delete-user-form', compact('user'));
     }
 

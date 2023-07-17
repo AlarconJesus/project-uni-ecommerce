@@ -2,12 +2,14 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
             <h2 class="section-title h2">Reporte de ventas</h2>
-            @if ( $ventas->isEmpty())
+            @if ($ventas->isEmpty())
+            <h3 class="h3">Fecha {{$fecha}}</h3>
             <div>
-                <h2 class="h3 m-2">No hay ventas realizadas aún!</h2>
+                <h2 class="h3 m-2">No hay ventas registradas para esta fecha ...</h2>
                 <img style="width: 150px;" src="https://previews.123rf.com/images/alekseyvanin/alekseyvanin1710/alekseyvanin171000985/88110651-icono-de-la-l%C3%ADnea-de-la-correa-del-motor-del-autom%C3%B3vil-muestra-del-vector-del-esquema-pictograma.jpg" alt="Imagen de correa">
             </div>
             @else
+            <h3 class="h3">Fecha {{$fecha}}</h3>
 
             <table id="tabla" class="table table-light table-striped table-bordered shadow-lg mt" style="width: 100%;">
                 <thead style="background-color:#6777ef">
@@ -27,7 +29,9 @@
                     <tr>
                         <td>{{ $venta->id }}</td>
                         @if($venta->comprador)
-                        <td>{{ $venta->comprador}}</td>
+                        <td>{{ $venta->comprador}},
+                            <p>{{$venta->compradorCedula}}</p>
+                        </td>
                         <td style="word-break: break-all;">{{ $venta->compradorEmail}}</td>
                         <td>{{ $venta->compradorTelefono}}</td>
                         @else

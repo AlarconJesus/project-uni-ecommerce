@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('telefono');
+            $table->bigInteger('cedula');
             $table->string('pregunta_secreta');
             $table->string('respuesta_secreta');
             $table->string('email')->unique();

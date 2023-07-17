@@ -11,6 +11,7 @@
     <script>
         $(document).ready(function() {
             $('#tabla').DataTable({
+                scrollX: true,
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por pagina",
                     "zeroRecords": "No se han encontrado registros - Lo siento",

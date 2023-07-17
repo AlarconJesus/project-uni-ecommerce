@@ -18,6 +18,10 @@
                 document.getElementById('form_login').submit();
             }
         }
+
+        // function login() {
+        //     document.getElementById('form_login').submit();
+        // }
     </script>
 
     <x-authentication-card>

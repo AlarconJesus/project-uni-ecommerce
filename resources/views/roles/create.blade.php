@@ -14,7 +14,7 @@
                 {!! Form::open(['route' => 'roles.store']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre *') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control mb-3', 'placeholder' => 'Ingrese el nombre del rol', 'required' => 'required']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control mb-3', 'placeholder' => 'Ingrese el nombre del rol', 'required' => 'required', 'maxlength' => '30']) !!}
 
                     @error('name')
                     <small class="text-danger">

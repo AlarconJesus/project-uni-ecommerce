@@ -27,6 +27,7 @@
                     <thead style="background-color:#6777ef">
                         <th style="display: none;">ID</th>
                         <th>Nombre</th>
+                        <th>Cédula</th>
                         <th>Email</th>
                         <th>Número de Teléfono</th>
                         <th>Status</th>
@@ -42,6 +43,7 @@
                             <td>{{ $user->name}}</td>
                             @endif
 
+                            <td>{{ $user->cedula }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->telefono }}</td>
                             @if($user->banned_at)

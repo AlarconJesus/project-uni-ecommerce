@@ -17,7 +17,7 @@
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <div class="form-group">
                                 <label for="nombre">Nombre *</label>
-                                <input type="text" name="nombre" required class="form-control" value="{{$categoria->nombre}}">
+                                <input type="text" name="nombre" maxlength="30" required class="form-control" value="{{$categoria->nombre}}">
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">

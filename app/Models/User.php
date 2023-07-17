@@ -33,6 +33,7 @@ class User extends Authenticatable implements BannableInterface
         'name',
         'email',
         'password',
+        'cedula',
         'telefono',
         'pregunta_secreta',
         'respuesta_secreta',

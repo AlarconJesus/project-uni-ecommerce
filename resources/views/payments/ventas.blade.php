@@ -55,7 +55,9 @@
                         <tr>
                             <td>{{ $venta->id }}</td>
                             @if($venta->comprador)
-                            <td>{{ $venta->comprador}}</td>
+                            <td>{{ $venta->comprador}},
+                                <p class="font-italic">{{$venta->compradorCedula}}</p>
+                            </td>
                             <td style="word-break: break-all;">{{ $venta->compradorEmail}}</td>
                             <td>{{ $venta->compradorTelefono}}</td>
                             @else

@@ -44,12 +44,12 @@
                             </div>
 
                             <!-- TODO Funcionalidad para actualizar imagenes para ser realizada -->
-                            <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="imagen">Imagen</label>
                                     <input type="file" name="imagen" class="form-control">
                                 </div>
-                            </div> -->
+                            </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
 

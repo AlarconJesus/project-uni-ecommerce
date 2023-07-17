@@ -20,6 +20,7 @@
 
             .card-img-top {
                 max-width: 400px;
+                margin-right: 30px;
             }
 
             .card-stock {

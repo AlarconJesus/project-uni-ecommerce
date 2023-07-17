@@ -23,7 +23,6 @@ class CategoriaController extends Controller
     {
         $categorias = Categoria::All();
 
-        // dd('Hasta aqui estoy funcionando');
         return view('categorias.index', compact('categorias'));
     }
 
@@ -45,6 +44,11 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:30',
+            'color' => 'required'
+        ]);
+
         $categoria = new Categoria();
 
         $categoria->nombre = $request->nombre;
@@ -61,10 +65,6 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //borrar despues
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +74,6 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
-
         return view('categorias.edit', compact('categoria'));
     }
 
@@ -87,6 +86,11 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria)
     {
+        $request->validate([
+            'nombre' => 'required|max:30',
+            'color' => 'required'
+        ]);
+
         $categoria->update($request->all());
 
         return redirect()->route('categorias.index');

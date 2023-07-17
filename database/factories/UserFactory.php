@@ -27,6 +27,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'cedula' => $this->faker->unique()->numberBetween(1000000, 34000000),
             'telefono' => $this->faker->phoneNumber(),
             'pregunta_secreta' => 'Marca de carro preferida',
             'respuesta_secreta' => '$2y$10$M4kEd69L8GO3RU.Pr.UDsuWn60xI3qe6U7Bf7OFnFG4hEK0lFHYJq',

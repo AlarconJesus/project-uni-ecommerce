@@ -133,16 +133,6 @@
                         </div>
 
                         <div class="col-xs-6 col-sm-6 col-md-6">
-                            <!-- <div class="form-group">
-                                <label>Verificado</label>
-                                @if($venta->verificado)
-                                <p class="form-control">Pago verificado ✅</p>
-                                @else
-                                <p class="form-control">Sin verificar ❌</p>
-                                @endif
-                            </div> -->
-
-
                             <div class="form-group">
                                 <label for="verificado">Verificado</label>
                                 <div class="form-group">

@@ -131,7 +131,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="referencia">Número de comprobante *</label>
-                                <input type="number" maxlength="60" step="any" name="referencia" class="form-control" required>
+                                <input type="number" maxlength="30" step="any" name="referencia" class="form-control" required>
                             </div>
                         </div>
 
